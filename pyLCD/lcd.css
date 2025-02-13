@@ -1,0 +1,699 @@
+* {
+    white-space: nowrap;
+}
+
+
+/* Banner styles */
+.BANNER_banner {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 800px;
+    height: 151px;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(215, 230, 251, 1) 7.78%, rgba(175, 204, 248, 1) 17.17%, rgba(141, 183, 244, 1) 26.82%, rgba(115, 167, 242, 1) 36.65%, rgba(97, 155, 240, 1) 46.73%, rgba(86, 148, 239, 1) 57.2%, rgba(82, 146, 239, 1) 68.72%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5292EF', endColorstr='#FFFFFF', GradientType=0);
+}
+
+.BANNER_frame {
+    position: absolute;
+    border-radius: 8px;
+    background: rgba(19, 46, 142, 1);
+}
+.BANNER_frame-type-zh {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    width: 234px;
+    height: 70px;
+    box-sizing: border-box;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+.BANNER_frame-type-en {
+    position: absolute;
+    left: 20px;
+    top: 96px;
+    width: 234px;
+    height: 36px;
+    box-sizing: border-box;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.BANNER_text-type-zh {
+    text-align: center;
+    font-family: 微软雅黑;
+    font-weight: bold;
+    font-size: 50px;
+    color: #FFFFFF;
+    white-space: nowrap; /* Prevent text from wrapping */
+    transform-origin: left center; /* Ensures the text scales from the left */
+}
+.BANNER_text-type-en {
+    text-align: center;
+    font-family : 微软雅黑;
+    font-weight : bold;
+    font-size : 25px;
+    color : #FFFFFF;
+    white-space: nowrap; /* Prevent text from wrapping */
+    transform-origin: left center; /* Ensures the text scales from the left */
+}
+
+.BANNER_text {
+    position: absolute;
+    font-family : 微软雅黑;
+    font-weight : bold;
+    color : #FFFFFF;
+    color : rgb(255, 255, 255);
+    text-shadow: 
+        2px 2px 0 #132E8E,  /* 右下描边 */
+        -2px 2px 0 #132E8E, /* 左下描边 */
+        2px -2px 0 #132E8E, /* 右上描边 */
+        -2px -2px 0 #132E8E; /* 左上描边 */
+}
+.BANNER_text-Wang {
+    left: 270px;
+    top: 10px;
+    font-size : 100px;
+}
+.BANNER_text-Terminal-ZH {
+    text-align: center;
+    left: 573px;
+    top: 65px;
+    font-size : 70px;
+    transform: translate(-50%, -50%);
+}
+.BANNER_text-Terminal-EN {
+    text-align: center;
+    left: 573px;
+    top: 120px;
+    font-size : 25px;
+    transform: translate(-50%, -50%);
+}
+
+.A1_text-Xia {
+    position: absolute;
+    top: 405px;
+    font-family : 微软雅黑;
+    font-weight : bold;
+    font-size : 60px;
+    color : #000000;
+    transform: translate(-50%, -50%);
+}
+.A1_text-ns {
+    position: absolute;
+    top: 450px;
+    font-family : 微软雅黑;
+    font-weight : bold;
+    font-size : 25px;
+    color : #000000;
+    transform: translate(-50%, -50%);
+}
+
+
+svg {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.A2-LINE_frame_t0 {
+    position: absolute;
+    background : #ADADAD;
+    width : 66px;
+    height : 41px;
+    border-radius: 8px;
+}
+
+.A2-LINE_frame_t1 {
+    position: absolute;
+    background : #FFFFFF;
+    width : 66px;
+    height : 41px;
+    border-radius: 8px;
+}
+.A2-LINE_text {
+    text-align: center;
+    font-family: Bahnschrift;
+    font-weight: bold;
+    font-size: 40px;
+    color: #000000;
+    white-space: nowrap; /* Prevent text from wrapping */
+    transform-origin: left center; /* Ensures the text scales from the left */
+
+    box-sizing: border-box;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+.A2-LINE_seg0 {
+    position: absolute;
+    background : #0080EA;
+    width : 63px;
+    height : 8px;
+}
+.A2-LINE_seg1 {
+    position: absolute;
+    background : #FF0000;
+    width : 100px;
+    height : 8px;
+}
+.A2-LINE_seg2 {
+    position: absolute;
+    background : #00932A;
+    width : 33px;
+    height : 8px;
+}
+
+.A2-EN_text_0 {
+    position: absolute;
+    top: 120px;
+    transform: rotate(90deg);
+    transform-origin: left bottom;
+    font-family : 方正黑体_GBK;
+    font-size : 40px;
+    color : #ADADAD;
+}
+.A2-EN_text_1 {
+    position: absolute;
+    top: 120px;
+    transform: rotate(90deg);
+    transform-origin: left bottom;
+    font-family : 方正黑体_GBK;
+    font-size : 40px;
+    color : #000000;
+}
+
+.A2-ZH_text_0 {
+    position: absolute;
+    width: 45px;
+    height: 190px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align-last: justify;
+    writing-mode: vertical-lr;
+
+    font-family : 微软雅黑;
+    font-weight : bold;
+    font-size : 45px;
+    color : #ADADAD;
+    transform-origin: top;
+}
+
+.A2-ZH_text_1 {
+    position: absolute;
+    width: 45px;
+    height: 190px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align-last: justify;
+    writing-mode: vertical-lr;
+
+    font-family : 微软雅黑;
+    font-weight : bold;
+    font-size : 45px;
+    color : #000000;
+    transform-origin: top;
+}
+
+.B1_cur-ZH {
+    position: absolute;
+    font-family : 微软雅黑;
+    font-weight : bold;
+    font-size : 150px;
+    color : #000000;
+    transform: translate(-50%, 0);
+}
+.B1_cur-EN {
+    position: absolute;
+    font-family : 微软雅黑;
+    font-weight : bold;
+    font-size : 60px;
+    color : #000000;
+    transform: translate(-50%, 0);
+}
+
+.B2-3_frame {
+    position: absolute;
+    border-radius: 8px;
+}
+.B2-3_frame-type-zh {
+    position: absolute;
+    top: 176px;
+    width: 234px;
+    height: 70px;
+}
+.B2-3_frame-type-en {
+    position: absolute;
+    top: 252px;
+    width: 234px;
+    height: 36px;
+}
+
+.B2-3_frame-type-zh-1 {
+    background: #06964B;
+    left: 29px;
+}
+.B2-3_frame-type-en-1 {
+    background: #06964B;
+    left: 29px;
+}
+.B2-3_frame-type-zh-2 {
+    background: #132E8E;
+    left: 283px;
+}
+.B2-3_frame-type-en-2 {
+    background: #132E8E;
+    left: 283px;
+}
+.B2-3_frame-type-zh-3 {
+    background: #C61A1A;
+    left: 537px;
+}
+.B2-3_frame-type-en-3 {
+    background: #C61A1A;
+    left: 537px;
+}
+
+.B2-3_text-type-zh {
+    text-align: center;
+    font-family: 微软雅黑;
+    font-weight: bold;
+    font-size: 50px;
+    color: #FFFFFF;
+    white-space: nowrap; /* Prevent text from wrapping */
+    transform-origin: left center; /* Ensures the text scales from the left */
+}
+.B2-3_text-type-en {
+    text-align: center;
+    font-family : 微软雅黑;
+    font-weight : bold;
+    font-size : 25px;
+    color : #FFFFFF;
+    white-space: nowrap; /* Prevent text from wrapping */
+    transform-origin: left center; /* Ensures the text scales from the left */
+}
+
+.B2-3_text-terminal-ZH {
+    position: absolute;
+    top: 303px;
+    transform: translateX(-50%);
+    font-family : 方正黑体_GBK;
+    font-size : 45px;
+    color : #000000;
+}
+.B2-3_text-terminal-EN {
+    position: absolute;
+    top: 353px;
+    transform: translateX(-50%);
+    font-family : 方正黑体_GBK;
+    font-size : 20px;
+    color : #000000;
+}
+
+.B2-3_text_t1 {
+    position: absolute;
+    top: 383px;
+    left: 146px;
+    transform: translateX(-50%);
+
+    text-align: center;
+    font-family : Bahnschrift;
+    font-weight : bold;
+    font-size : 80px;
+    color : #FFFFFF;
+}
+.B2-3_text_t2 {
+    position: absolute;
+    top: 383px;
+    left: 400px;
+    transform: translateX(-50%);
+
+    text-align: center;
+    font-family : Bahnschrift;
+    font-weight : bold;
+    font-size : 80px;
+    color : #FFFFFF;
+}
+.B2-3_text_t3 {
+    position: absolute;
+    top: 383px;
+    left: 654px;
+    transform: translateX(-50%);
+
+    text-align: center;
+    font-family : Bahnschrift;
+    font-weight : bold;
+    font-size : 80px;
+    color : #FFFFFF;
+}
+.B2-3_frame-t1 {
+    position: absolute;
+    top: 383px;
+    left: 146px;
+    transform: translateX(-50%);
+}
+.B2-3_frame-t2 {
+    position: absolute;
+    top: 383px;
+    left: 400px;
+    transform: translateX(-50%);
+}
+.B2-3_frame-t3 {
+    position: absolute;
+    top: 383px;
+    left: 654px;
+    transform: translateX(-50%);
+}
+.B2-3_frame-green {
+    background : -moz-linear-gradient(50% 0% -90deg,rgba(255, 255, 255, 1) 0%,rgba(221, 247, 233, 1) 3.12%,rgba(176, 235, 203, 1) 7.88%,rgba(136, 225, 177, 1) 12.97%,rgba(103, 217, 154, 1) 18.33%,rgba(75, 210, 136, 1) 24.03%,rgba(54, 205, 122, 1) 30.19%,rgba(39, 201, 113, 1) 37.04%,rgba(31, 199, 107, 1) 45.12%,rgba(28, 198, 105, 1) 57.54%);
+    background : -webkit-linear-gradient(-90deg, rgba(255, 255, 255, 1) 0%, rgba(221, 247, 233, 1) 3.12%, rgba(176, 235, 203, 1) 7.88%, rgba(136, 225, 177, 1) 12.97%, rgba(103, 217, 154, 1) 18.33%, rgba(75, 210, 136, 1) 24.03%, rgba(54, 205, 122, 1) 30.19%, rgba(39, 201, 113, 1) 37.04%, rgba(31, 199, 107, 1) 45.12%, rgba(28, 198, 105, 1) 57.54%);
+    background : -webkit-gradient(linear,50% 0% ,50% 100% ,color-stop(0,rgba(255, 255, 255, 1) ),color-stop(0.0312,rgba(221, 247, 233, 1) ),color-stop(0.0788,rgba(176, 235, 203, 1) ),color-stop(0.1297,rgba(136, 225, 177, 1) ),color-stop(0.1833,rgba(103, 217, 154, 1) ),color-stop(0.2403,rgba(75, 210, 136, 1) ),color-stop(0.3019,rgba(54, 205, 122, 1) ),color-stop(0.3704,rgba(39, 201, 113, 1) ),color-stop(0.4512,rgba(31, 199, 107, 1) ),color-stop(0.5754,rgba(28, 198, 105, 1) ));
+    background : -o-linear-gradient(-90deg, rgba(255, 255, 255, 1) 0%, rgba(221, 247, 233, 1) 3.12%, rgba(176, 235, 203, 1) 7.88%, rgba(136, 225, 177, 1) 12.97%, rgba(103, 217, 154, 1) 18.33%, rgba(75, 210, 136, 1) 24.03%, rgba(54, 205, 122, 1) 30.19%, rgba(39, 201, 113, 1) 37.04%, rgba(31, 199, 107, 1) 45.12%, rgba(28, 198, 105, 1) 57.54%);
+    background : -ms-linear-gradient(-90deg, rgba(255, 255, 255, 1) 0%, rgba(221, 247, 233, 1) 3.12%, rgba(176, 235, 203, 1) 7.88%, rgba(136, 225, 177, 1) 12.97%, rgba(103, 217, 154, 1) 18.33%, rgba(75, 210, 136, 1) 24.03%, rgba(54, 205, 122, 1) 30.19%, rgba(39, 201, 113, 1) 37.04%, rgba(31, 199, 107, 1) 45.12%, rgba(28, 198, 105, 1) 57.54%);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#1CC669' ,GradientType=0)";
+    background : linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(221, 247, 233, 1) 3.12%, rgba(176, 235, 203, 1) 7.88%, rgba(136, 225, 177, 1) 12.97%, rgba(103, 217, 154, 1) 18.33%, rgba(75, 210, 136, 1) 24.03%, rgba(54, 205, 122, 1) 30.19%, rgba(39, 201, 113, 1) 37.04%, rgba(31, 199, 107, 1) 45.12%, rgba(28, 198, 105, 1) 57.54%);
+    width : 132px;
+    height : 82px;
+    border-radius : 20px;
+    -moz-border-radius : 20px;
+    -webkit-border-radius : 20px;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF',endColorstr='#1CC669' , GradientType=0);
+}
+.B2-3_frame-blue {
+    background : -moz-linear-gradient(50% 0% -90deg,rgba(255, 255, 255, 1) 0%,rgba(229, 239, 253, 1) 3.11%,rgba(190, 214, 249, 1) 8.6%,rgba(157, 193, 246, 1) 14.49%,rgba(129, 176, 243, 1) 20.74%,rgba(108, 163, 241, 1) 27.5%,rgba(93, 153, 240, 1) 35.02%,rgba(85, 148, 239, 1) 43.9%,rgba(82, 146, 239, 1) 57.54%);
+    background : -webkit-linear-gradient(-90deg, rgba(255, 255, 255, 1) 0%, rgba(229, 239, 253, 1) 3.11%, rgba(190, 214, 249, 1) 8.6%, rgba(157, 193, 246, 1) 14.49%, rgba(129, 176, 243, 1) 20.74%, rgba(108, 163, 241, 1) 27.5%, rgba(93, 153, 240, 1) 35.02%, rgba(85, 148, 239, 1) 43.9%, rgba(82, 146, 239, 1) 57.54%);
+    background : -webkit-gradient(linear,50% 0% ,50% 100% ,color-stop(0,rgba(255, 255, 255, 1) ),color-stop(0.0311,rgba(229, 239, 253, 1) ),color-stop(0.086,rgba(190, 214, 249, 1) ),color-stop(0.1449,rgba(157, 193, 246, 1) ),color-stop(0.2074,rgba(129, 176, 243, 1) ),color-stop(0.275,rgba(108, 163, 241, 1) ),color-stop(0.3502,rgba(93, 153, 240, 1) ),color-stop(0.439,rgba(85, 148, 239, 1) ),color-stop(0.5754,rgba(82, 146, 239, 1) ));
+    background : -o-linear-gradient(-90deg, rgba(255, 255, 255, 1) 0%, rgba(229, 239, 253, 1) 3.11%, rgba(190, 214, 249, 1) 8.6%, rgba(157, 193, 246, 1) 14.49%, rgba(129, 176, 243, 1) 20.74%, rgba(108, 163, 241, 1) 27.5%, rgba(93, 153, 240, 1) 35.02%, rgba(85, 148, 239, 1) 43.9%, rgba(82, 146, 239, 1) 57.54%);
+    background : -ms-linear-gradient(-90deg, rgba(255, 255, 255, 1) 0%, rgba(229, 239, 253, 1) 3.11%, rgba(190, 214, 249, 1) 8.6%, rgba(157, 193, 246, 1) 14.49%, rgba(129, 176, 243, 1) 20.74%, rgba(108, 163, 241, 1) 27.5%, rgba(93, 153, 240, 1) 35.02%, rgba(85, 148, 239, 1) 43.9%, rgba(82, 146, 239, 1) 57.54%);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#5292EF' ,GradientType=0)";
+    background : linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(229, 239, 253, 1) 3.11%, rgba(190, 214, 249, 1) 8.6%, rgba(157, 193, 246, 1) 14.49%, rgba(129, 176, 243, 1) 20.74%, rgba(108, 163, 241, 1) 27.5%, rgba(93, 153, 240, 1) 35.02%, rgba(85, 148, 239, 1) 43.9%, rgba(82, 146, 239, 1) 57.54%);
+    width : 132px;
+    height : 82px;
+    border-radius : 20px;
+    -moz-border-radius : 20px;
+    -webkit-border-radius : 20px;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF',endColorstr='#5292EF' , GradientType=0);
+}
+.B2-3_frame-red {
+    background : -moz-linear-gradient(50% 0% -90deg,rgba(255, 255, 255, 1) 0%,rgba(255, 213, 211, 1) 4.94%,rgba(255, 176, 172, 1) 10.24%,rgba(255, 144, 139, 1) 15.93%,rgba(255, 118, 111, 1) 21.97%,rgba(255, 98, 90, 1) 28.51%,rgba(255, 84, 75, 1) 35.78%,rgba(255, 76, 67, 1) 44.36%,rgba(255, 73, 64, 1) 57.54%);
+    background : -webkit-linear-gradient(-90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 213, 211, 1) 4.94%, rgba(255, 176, 172, 1) 10.24%, rgba(255, 144, 139, 1) 15.93%, rgba(255, 118, 111, 1) 21.97%, rgba(255, 98, 90, 1) 28.51%, rgba(255, 84, 75, 1) 35.78%, rgba(255, 76, 67, 1) 44.36%, rgba(255, 73, 64, 1) 57.54%);
+    background : -webkit-gradient(linear,50% 0% ,50% 100% ,color-stop(0,rgba(255, 255, 255, 1) ),color-stop(0.0494,rgba(255, 213, 211, 1) ),color-stop(0.1024,rgba(255, 176, 172, 1) ),color-stop(0.1593,rgba(255, 144, 139, 1) ),color-stop(0.2197,rgba(255, 118, 111, 1) ),color-stop(0.2851,rgba(255, 98, 90, 1) ),color-stop(0.3578,rgba(255, 84, 75, 1) ),color-stop(0.4436,rgba(255, 76, 67, 1) ),color-stop(0.5754,rgba(255, 73, 64, 1) ));
+    background : -o-linear-gradient(-90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 213, 211, 1) 4.94%, rgba(255, 176, 172, 1) 10.24%, rgba(255, 144, 139, 1) 15.93%, rgba(255, 118, 111, 1) 21.97%, rgba(255, 98, 90, 1) 28.51%, rgba(255, 84, 75, 1) 35.78%, rgba(255, 76, 67, 1) 44.36%, rgba(255, 73, 64, 1) 57.54%);
+    background : -ms-linear-gradient(-90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 213, 211, 1) 4.94%, rgba(255, 176, 172, 1) 10.24%, rgba(255, 144, 139, 1) 15.93%, rgba(255, 118, 111, 1) 21.97%, rgba(255, 98, 90, 1) 28.51%, rgba(255, 84, 75, 1) 35.78%, rgba(255, 76, 67, 1) 44.36%, rgba(255, 73, 64, 1) 57.54%);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#FF4940' ,GradientType=0)";
+    background : linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 213, 211, 1) 4.94%, rgba(255, 176, 172, 1) 10.24%, rgba(255, 144, 139, 1) 15.93%, rgba(255, 118, 111, 1) 21.97%, rgba(255, 98, 90, 1) 28.51%, rgba(255, 84, 75, 1) 35.78%, rgba(255, 76, 67, 1) 44.36%, rgba(255, 73, 64, 1) 57.54%);
+    width : 132px;
+    height : 82px;
+    border-radius : 20px;
+    -moz-border-radius : 20px;
+    -webkit-border-radius : 20px;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF',endColorstr='#FF4940' , GradientType=0);
+}
+
+.B2-2_frame {
+    position: absolute;
+    border-radius: 8px;
+}
+.B2-2_frame-type-zh {
+    position: absolute;
+    top: 176px;
+    width: 234px;
+    height: 70px;
+}
+.B2-2_frame-type-en {
+    position: absolute;
+    top: 252px;
+    width: 234px;
+    height: 36px;
+}
+
+.B2-2_frame-type-zh-1 {
+    background: #06964B;
+    left: 109px;
+}
+.B2-2_frame-type-en-1 {
+    background: #06964B;
+    left: 109px;
+}
+.B2-2_frame-type-zh-2 {
+    background: #132E8E;
+    left: 457px;
+}
+.B2-2_frame-type-en-2 {
+    background: #132E8E;
+    left: 457px;
+}
+
+.B2-2_text-type-zh {
+    text-align: center;
+    font-family: 微软雅黑;
+    font-weight: bold;
+    font-size: 50px;
+    color: #FFFFFF;
+    white-space: nowrap; /* Prevent text from wrapping */
+    transform-origin: left center; /* Ensures the text scales from the left */
+}
+.B2-2_text-type-en {
+    text-align: center;
+    font-family : 微软雅黑;
+    font-weight : bold;
+    font-size : 25px;
+    color : #FFFFFF;
+    white-space: nowrap; /* Prevent text from wrapping */
+    transform-origin: left center; /* Ensures the text scales from the left */
+}
+
+.B2-2_text-terminal-ZH {
+    position: absolute;
+    top: 303px;
+    transform: translateX(-50%);
+    font-family : 方正黑体_GBK;
+    font-size : 45px;
+    color : #000000;
+}
+.B2-2_text-terminal-EN {
+    position: absolute;
+    top: 353px;
+    transform: translateX(-50%);
+    font-family : 方正黑体_GBK;
+    font-size : 20px;
+    color : #000000;
+}
+
+.B2-2_text_t1 {
+    position: absolute;
+    top: 383px;
+    left: 226px;
+    transform: translateX(-50%);
+
+    text-align: center;
+    font-family : Bahnschrift;
+    font-weight : bold;
+    font-size : 80px;
+    color : #FFFFFF;
+}
+.B2-2_text_t2 {
+    position: absolute;
+    top: 383px;
+    left: 574px;
+    transform: translateX(-50%);
+
+    text-align: center;
+    font-family : Bahnschrift;
+    font-weight : bold;
+    font-size : 80px;
+    color : #FFFFFF;
+}
+.B2-2_frame-t1 {
+    position: absolute;
+    top: 383px;
+    left: 226px;
+    transform: translateX(-50%);
+}
+.B2-2_frame-t2 {
+    position: absolute;
+    top: 383px;
+    left: 574px;
+    transform: translateX(-50%);
+}
+.B2-2_frame-green {
+    background : -moz-linear-gradient(50% 0% -90deg,rgba(255, 255, 255, 1) 0%,rgba(221, 247, 233, 1) 3.12%,rgba(176, 235, 203, 1) 7.88%,rgba(136, 225, 177, 1) 12.97%,rgba(103, 217, 154, 1) 18.33%,rgba(75, 210, 136, 1) 24.03%,rgba(54, 205, 122, 1) 30.19%,rgba(39, 201, 113, 1) 37.04%,rgba(31, 199, 107, 1) 45.12%,rgba(28, 198, 105, 1) 57.54%);
+    background : -webkit-linear-gradient(-90deg, rgba(255, 255, 255, 1) 0%, rgba(221, 247, 233, 1) 3.12%, rgba(176, 235, 203, 1) 7.88%, rgba(136, 225, 177, 1) 12.97%, rgba(103, 217, 154, 1) 18.33%, rgba(75, 210, 136, 1) 24.03%, rgba(54, 205, 122, 1) 30.19%, rgba(39, 201, 113, 1) 37.04%, rgba(31, 199, 107, 1) 45.12%, rgba(28, 198, 105, 1) 57.54%);
+    background : -webkit-gradient(linear,50% 0% ,50% 100% ,color-stop(0,rgba(255, 255, 255, 1) ),color-stop(0.0312,rgba(221, 247, 233, 1) ),color-stop(0.0788,rgba(176, 235, 203, 1) ),color-stop(0.1297,rgba(136, 225, 177, 1) ),color-stop(0.1833,rgba(103, 217, 154, 1) ),color-stop(0.2403,rgba(75, 210, 136, 1) ),color-stop(0.3019,rgba(54, 205, 122, 1) ),color-stop(0.3704,rgba(39, 201, 113, 1) ),color-stop(0.4512,rgba(31, 199, 107, 1) ),color-stop(0.5754,rgba(28, 198, 105, 1) ));
+    background : -o-linear-gradient(-90deg, rgba(255, 255, 255, 1) 0%, rgba(221, 247, 233, 1) 3.12%, rgba(176, 235, 203, 1) 7.88%, rgba(136, 225, 177, 1) 12.97%, rgba(103, 217, 154, 1) 18.33%, rgba(75, 210, 136, 1) 24.03%, rgba(54, 205, 122, 1) 30.19%, rgba(39, 201, 113, 1) 37.04%, rgba(31, 199, 107, 1) 45.12%, rgba(28, 198, 105, 1) 57.54%);
+    background : -ms-linear-gradient(-90deg, rgba(255, 255, 255, 1) 0%, rgba(221, 247, 233, 1) 3.12%, rgba(176, 235, 203, 1) 7.88%, rgba(136, 225, 177, 1) 12.97%, rgba(103, 217, 154, 1) 18.33%, rgba(75, 210, 136, 1) 24.03%, rgba(54, 205, 122, 1) 30.19%, rgba(39, 201, 113, 1) 37.04%, rgba(31, 199, 107, 1) 45.12%, rgba(28, 198, 105, 1) 57.54%);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#1CC669' ,GradientType=0)";
+    background : linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(221, 247, 233, 1) 3.12%, rgba(176, 235, 203, 1) 7.88%, rgba(136, 225, 177, 1) 12.97%, rgba(103, 217, 154, 1) 18.33%, rgba(75, 210, 136, 1) 24.03%, rgba(54, 205, 122, 1) 30.19%, rgba(39, 201, 113, 1) 37.04%, rgba(31, 199, 107, 1) 45.12%, rgba(28, 198, 105, 1) 57.54%);
+    width : 132px;
+    height : 82px;
+    border-radius : 20px;
+    -moz-border-radius : 20px;
+    -webkit-border-radius : 20px;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF',endColorstr='#1CC669' , GradientType=0);
+}
+.B2-2_frame-blue {
+    background : -moz-linear-gradient(50% 0% -90deg,rgba(255, 255, 255, 1) 0%,rgba(229, 239, 253, 1) 3.11%,rgba(190, 214, 249, 1) 8.6%,rgba(157, 193, 246, 1) 14.49%,rgba(129, 176, 243, 1) 20.74%,rgba(108, 163, 241, 1) 27.5%,rgba(93, 153, 240, 1) 35.02%,rgba(85, 148, 239, 1) 43.9%,rgba(82, 146, 239, 1) 57.54%);
+    background : -webkit-linear-gradient(-90deg, rgba(255, 255, 255, 1) 0%, rgba(229, 239, 253, 1) 3.11%, rgba(190, 214, 249, 1) 8.6%, rgba(157, 193, 246, 1) 14.49%, rgba(129, 176, 243, 1) 20.74%, rgba(108, 163, 241, 1) 27.5%, rgba(93, 153, 240, 1) 35.02%, rgba(85, 148, 239, 1) 43.9%, rgba(82, 146, 239, 1) 57.54%);
+    background : -webkit-gradient(linear,50% 0% ,50% 100% ,color-stop(0,rgba(255, 255, 255, 1) ),color-stop(0.0311,rgba(229, 239, 253, 1) ),color-stop(0.086,rgba(190, 214, 249, 1) ),color-stop(0.1449,rgba(157, 193, 246, 1) ),color-stop(0.2074,rgba(129, 176, 243, 1) ),color-stop(0.275,rgba(108, 163, 241, 1) ),color-stop(0.3502,rgba(93, 153, 240, 1) ),color-stop(0.439,rgba(85, 148, 239, 1) ),color-stop(0.5754,rgba(82, 146, 239, 1) ));
+    background : -o-linear-gradient(-90deg, rgba(255, 255, 255, 1) 0%, rgba(229, 239, 253, 1) 3.11%, rgba(190, 214, 249, 1) 8.6%, rgba(157, 193, 246, 1) 14.49%, rgba(129, 176, 243, 1) 20.74%, rgba(108, 163, 241, 1) 27.5%, rgba(93, 153, 240, 1) 35.02%, rgba(85, 148, 239, 1) 43.9%, rgba(82, 146, 239, 1) 57.54%);
+    background : -ms-linear-gradient(-90deg, rgba(255, 255, 255, 1) 0%, rgba(229, 239, 253, 1) 3.11%, rgba(190, 214, 249, 1) 8.6%, rgba(157, 193, 246, 1) 14.49%, rgba(129, 176, 243, 1) 20.74%, rgba(108, 163, 241, 1) 27.5%, rgba(93, 153, 240, 1) 35.02%, rgba(85, 148, 239, 1) 43.9%, rgba(82, 146, 239, 1) 57.54%);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#5292EF' ,GradientType=0)";
+    background : linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(229, 239, 253, 1) 3.11%, rgba(190, 214, 249, 1) 8.6%, rgba(157, 193, 246, 1) 14.49%, rgba(129, 176, 243, 1) 20.74%, rgba(108, 163, 241, 1) 27.5%, rgba(93, 153, 240, 1) 35.02%, rgba(85, 148, 239, 1) 43.9%, rgba(82, 146, 239, 1) 57.54%);
+    width : 132px;
+    height : 82px;
+    border-radius : 20px;
+    -moz-border-radius : 20px;
+    -webkit-border-radius : 20px;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF',endColorstr='#5292EF' , GradientType=0);
+}
+.B2-2_frame-red {
+    background : -moz-linear-gradient(50% 0% -90deg,rgba(255, 255, 255, 1) 0%,rgba(255, 213, 211, 1) 4.94%,rgba(255, 176, 172, 1) 10.24%,rgba(255, 144, 139, 1) 15.93%,rgba(255, 118, 111, 1) 21.97%,rgba(255, 98, 90, 1) 28.51%,rgba(255, 84, 75, 1) 35.78%,rgba(255, 76, 67, 1) 44.36%,rgba(255, 73, 64, 1) 57.54%);
+    background : -webkit-linear-gradient(-90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 213, 211, 1) 4.94%, rgba(255, 176, 172, 1) 10.24%, rgba(255, 144, 139, 1) 15.93%, rgba(255, 118, 111, 1) 21.97%, rgba(255, 98, 90, 1) 28.51%, rgba(255, 84, 75, 1) 35.78%, rgba(255, 76, 67, 1) 44.36%, rgba(255, 73, 64, 1) 57.54%);
+    background : -webkit-gradient(linear,50% 0% ,50% 100% ,color-stop(0,rgba(255, 255, 255, 1) ),color-stop(0.0494,rgba(255, 213, 211, 1) ),color-stop(0.1024,rgba(255, 176, 172, 1) ),color-stop(0.1593,rgba(255, 144, 139, 1) ),color-stop(0.2197,rgba(255, 118, 111, 1) ),color-stop(0.2851,rgba(255, 98, 90, 1) ),color-stop(0.3578,rgba(255, 84, 75, 1) ),color-stop(0.4436,rgba(255, 76, 67, 1) ),color-stop(0.5754,rgba(255, 73, 64, 1) ));
+    background : -o-linear-gradient(-90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 213, 211, 1) 4.94%, rgba(255, 176, 172, 1) 10.24%, rgba(255, 144, 139, 1) 15.93%, rgba(255, 118, 111, 1) 21.97%, rgba(255, 98, 90, 1) 28.51%, rgba(255, 84, 75, 1) 35.78%, rgba(255, 76, 67, 1) 44.36%, rgba(255, 73, 64, 1) 57.54%);
+    background : -ms-linear-gradient(-90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 213, 211, 1) 4.94%, rgba(255, 176, 172, 1) 10.24%, rgba(255, 144, 139, 1) 15.93%, rgba(255, 118, 111, 1) 21.97%, rgba(255, 98, 90, 1) 28.51%, rgba(255, 84, 75, 1) 35.78%, rgba(255, 76, 67, 1) 44.36%, rgba(255, 73, 64, 1) 57.54%);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#FF4940' ,GradientType=0)";
+    background : linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 213, 211, 1) 4.94%, rgba(255, 176, 172, 1) 10.24%, rgba(255, 144, 139, 1) 15.93%, rgba(255, 118, 111, 1) 21.97%, rgba(255, 98, 90, 1) 28.51%, rgba(255, 84, 75, 1) 35.78%, rgba(255, 76, 67, 1) 44.36%, rgba(255, 73, 64, 1) 57.54%);
+    width : 132px;
+    height : 82px;
+    border-radius : 20px;
+    -moz-border-radius : 20px;
+    -webkit-border-radius : 20px;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF',endColorstr='#FF4940' , GradientType=0);
+}
+
+.B2-1_frame {
+    position: absolute;
+    border-radius: 8px;
+}
+.B2-1_frame-type-zh {
+    position: absolute;
+    top: 176px;
+    width: 234px;
+    height: 70px;
+}
+.B2-1_frame-type-en {
+    position: absolute;
+    top: 252px;
+    width: 234px;
+    height: 36px;
+}
+
+.B2-1_frame-type-zh-1 {
+    background: #06964B;
+    left: 283px;
+}
+.B2-1_frame-type-en-1 {
+    background: #06964B;
+    left: 283px;
+}
+
+.B2-1_text-type-zh {
+    text-align: center;
+    font-family: 微软雅黑;
+    font-weight: bold;
+    font-size: 50px;
+    color: #FFFFFF;
+    white-space: nowrap; /* Prevent text from wrapping */
+    transform-origin: left center; /* Ensures the text scales from the left */
+}
+.B2-1_text-type-en {
+    text-align: center;
+    font-family : 微软雅黑;
+    font-weight : bold;
+    font-size : 25px;
+    color : #FFFFFF;
+    white-space: nowrap; /* Prevent text from wrapping */
+    transform-origin: left center; /* Ensures the text scales from the left */
+}
+
+.B2-1_text-terminal-ZH {
+    position: absolute;
+    top: 303px;
+    transform: translateX(-50%);
+    font-family : 方正黑体_GBK;
+    font-size : 45px;
+    color : #000000;
+}
+.B2-1_text-terminal-EN {
+    position: absolute;
+    top: 353px;
+    transform: translateX(-50%);
+    font-family : 方正黑体_GBK;
+    font-size : 20px;
+    color : #000000;
+}
+
+.B2-1_text_t1 {
+    position: absolute;
+    top: 383px;
+    left: 400px;
+    transform: translateX(-50%);
+
+    text-align: center;
+    font-family : Bahnschrift;
+    font-weight : bold;
+    font-size : 80px;
+    color : #FFFFFF;
+}
+.B2-1_frame-t1 {
+    position: absolute;
+    top: 383px;
+    left: 400px;
+    transform: translateX(-50%);
+}
+.B2-1_frame-green {
+    background : -moz-linear-gradient(50% 0% -90deg,rgba(255, 255, 255, 1) 0%,rgba(221, 247, 233, 1) 3.12%,rgba(176, 235, 203, 1) 7.88%,rgba(136, 225, 177, 1) 12.97%,rgba(103, 217, 154, 1) 18.33%,rgba(75, 210, 136, 1) 24.03%,rgba(54, 205, 122, 1) 30.19%,rgba(39, 201, 113, 1) 37.04%,rgba(31, 199, 107, 1) 45.12%,rgba(28, 198, 105, 1) 57.54%);
+    background : -webkit-linear-gradient(-90deg, rgba(255, 255, 255, 1) 0%, rgba(221, 247, 233, 1) 3.12%, rgba(176, 235, 203, 1) 7.88%, rgba(136, 225, 177, 1) 12.97%, rgba(103, 217, 154, 1) 18.33%, rgba(75, 210, 136, 1) 24.03%, rgba(54, 205, 122, 1) 30.19%, rgba(39, 201, 113, 1) 37.04%, rgba(31, 199, 107, 1) 45.12%, rgba(28, 198, 105, 1) 57.54%);
+    background : -webkit-gradient(linear,50% 0% ,50% 100% ,color-stop(0,rgba(255, 255, 255, 1) ),color-stop(0.0312,rgba(221, 247, 233, 1) ),color-stop(0.0788,rgba(176, 235, 203, 1) ),color-stop(0.1297,rgba(136, 225, 177, 1) ),color-stop(0.1833,rgba(103, 217, 154, 1) ),color-stop(0.2403,rgba(75, 210, 136, 1) ),color-stop(0.3019,rgba(54, 205, 122, 1) ),color-stop(0.3704,rgba(39, 201, 113, 1) ),color-stop(0.4512,rgba(31, 199, 107, 1) ),color-stop(0.5754,rgba(28, 198, 105, 1) ));
+    background : -o-linear-gradient(-90deg, rgba(255, 255, 255, 1) 0%, rgba(221, 247, 233, 1) 3.12%, rgba(176, 235, 203, 1) 7.88%, rgba(136, 225, 177, 1) 12.97%, rgba(103, 217, 154, 1) 18.33%, rgba(75, 210, 136, 1) 24.03%, rgba(54, 205, 122, 1) 30.19%, rgba(39, 201, 113, 1) 37.04%, rgba(31, 199, 107, 1) 45.12%, rgba(28, 198, 105, 1) 57.54%);
+    background : -ms-linear-gradient(-90deg, rgba(255, 255, 255, 1) 0%, rgba(221, 247, 233, 1) 3.12%, rgba(176, 235, 203, 1) 7.88%, rgba(136, 225, 177, 1) 12.97%, rgba(103, 217, 154, 1) 18.33%, rgba(75, 210, 136, 1) 24.03%, rgba(54, 205, 122, 1) 30.19%, rgba(39, 201, 113, 1) 37.04%, rgba(31, 199, 107, 1) 45.12%, rgba(28, 198, 105, 1) 57.54%);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#1CC669' ,GradientType=0)";
+    background : linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(221, 247, 233, 1) 3.12%, rgba(176, 235, 203, 1) 7.88%, rgba(136, 225, 177, 1) 12.97%, rgba(103, 217, 154, 1) 18.33%, rgba(75, 210, 136, 1) 24.03%, rgba(54, 205, 122, 1) 30.19%, rgba(39, 201, 113, 1) 37.04%, rgba(31, 199, 107, 1) 45.12%, rgba(28, 198, 105, 1) 57.54%);
+    width : 132px;
+    height : 82px;
+    border-radius : 20px;
+    -moz-border-radius : 20px;
+    -webkit-border-radius : 20px;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF',endColorstr='#1CC669' , GradientType=0);
+}
+.B2-1_frame-blue {
+    background : -moz-linear-gradient(50% 0% -90deg,rgba(255, 255, 255, 1) 0%,rgba(229, 239, 253, 1) 3.11%,rgba(190, 214, 249, 1) 8.6%,rgba(157, 193, 246, 1) 14.49%,rgba(129, 176, 243, 1) 20.74%,rgba(108, 163, 241, 1) 27.5%,rgba(93, 153, 240, 1) 35.02%,rgba(85, 148, 239, 1) 43.9%,rgba(82, 146, 239, 1) 57.54%);
+    background : -webkit-linear-gradient(-90deg, rgba(255, 255, 255, 1) 0%, rgba(229, 239, 253, 1) 3.11%, rgba(190, 214, 249, 1) 8.6%, rgba(157, 193, 246, 1) 14.49%, rgba(129, 176, 243, 1) 20.74%, rgba(108, 163, 241, 1) 27.5%, rgba(93, 153, 240, 1) 35.02%, rgba(85, 148, 239, 1) 43.9%, rgba(82, 146, 239, 1) 57.54%);
+    background : -webkit-gradient(linear,50% 0% ,50% 100% ,color-stop(0,rgba(255, 255, 255, 1) ),color-stop(0.0311,rgba(229, 239, 253, 1) ),color-stop(0.086,rgba(190, 214, 249, 1) ),color-stop(0.1449,rgba(157, 193, 246, 1) ),color-stop(0.2074,rgba(129, 176, 243, 1) ),color-stop(0.275,rgba(108, 163, 241, 1) ),color-stop(0.3502,rgba(93, 153, 240, 1) ),color-stop(0.439,rgba(85, 148, 239, 1) ),color-stop(0.5754,rgba(82, 146, 239, 1) ));
+    background : -o-linear-gradient(-90deg, rgba(255, 255, 255, 1) 0%, rgba(229, 239, 253, 1) 3.11%, rgba(190, 214, 249, 1) 8.6%, rgba(157, 193, 246, 1) 14.49%, rgba(129, 176, 243, 1) 20.74%, rgba(108, 163, 241, 1) 27.5%, rgba(93, 153, 240, 1) 35.02%, rgba(85, 148, 239, 1) 43.9%, rgba(82, 146, 239, 1) 57.54%);
+    background : -ms-linear-gradient(-90deg, rgba(255, 255, 255, 1) 0%, rgba(229, 239, 253, 1) 3.11%, rgba(190, 214, 249, 1) 8.6%, rgba(157, 193, 246, 1) 14.49%, rgba(129, 176, 243, 1) 20.74%, rgba(108, 163, 241, 1) 27.5%, rgba(93, 153, 240, 1) 35.02%, rgba(85, 148, 239, 1) 43.9%, rgba(82, 146, 239, 1) 57.54%);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#5292EF' ,GradientType=0)";
+    background : linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(229, 239, 253, 1) 3.11%, rgba(190, 214, 249, 1) 8.6%, rgba(157, 193, 246, 1) 14.49%, rgba(129, 176, 243, 1) 20.74%, rgba(108, 163, 241, 1) 27.5%, rgba(93, 153, 240, 1) 35.02%, rgba(85, 148, 239, 1) 43.9%, rgba(82, 146, 239, 1) 57.54%);
+    width : 132px;
+    height : 82px;
+    border-radius : 20px;
+    -moz-border-radius : 20px;
+    -webkit-border-radius : 20px;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF',endColorstr='#5292EF' , GradientType=0);
+}
+.B2-1_frame-red {
+    background : -moz-linear-gradient(50% 0% -90deg,rgba(255, 255, 255, 1) 0%,rgba(255, 213, 211, 1) 4.94%,rgba(255, 176, 172, 1) 10.24%,rgba(255, 144, 139, 1) 15.93%,rgba(255, 118, 111, 1) 21.97%,rgba(255, 98, 90, 1) 28.51%,rgba(255, 84, 75, 1) 35.78%,rgba(255, 76, 67, 1) 44.36%,rgba(255, 73, 64, 1) 57.54%);
+    background : -webkit-linear-gradient(-90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 213, 211, 1) 4.94%, rgba(255, 176, 172, 1) 10.24%, rgba(255, 144, 139, 1) 15.93%, rgba(255, 118, 111, 1) 21.97%, rgba(255, 98, 90, 1) 28.51%, rgba(255, 84, 75, 1) 35.78%, rgba(255, 76, 67, 1) 44.36%, rgba(255, 73, 64, 1) 57.54%);
+    background : -webkit-gradient(linear,50% 0% ,50% 100% ,color-stop(0,rgba(255, 255, 255, 1) ),color-stop(0.0494,rgba(255, 213, 211, 1) ),color-stop(0.1024,rgba(255, 176, 172, 1) ),color-stop(0.1593,rgba(255, 144, 139, 1) ),color-stop(0.2197,rgba(255, 118, 111, 1) ),color-stop(0.2851,rgba(255, 98, 90, 1) ),color-stop(0.3578,rgba(255, 84, 75, 1) ),color-stop(0.4436,rgba(255, 76, 67, 1) ),color-stop(0.5754,rgba(255, 73, 64, 1) ));
+    background : -o-linear-gradient(-90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 213, 211, 1) 4.94%, rgba(255, 176, 172, 1) 10.24%, rgba(255, 144, 139, 1) 15.93%, rgba(255, 118, 111, 1) 21.97%, rgba(255, 98, 90, 1) 28.51%, rgba(255, 84, 75, 1) 35.78%, rgba(255, 76, 67, 1) 44.36%, rgba(255, 73, 64, 1) 57.54%);
+    background : -ms-linear-gradient(-90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 213, 211, 1) 4.94%, rgba(255, 176, 172, 1) 10.24%, rgba(255, 144, 139, 1) 15.93%, rgba(255, 118, 111, 1) 21.97%, rgba(255, 98, 90, 1) 28.51%, rgba(255, 84, 75, 1) 35.78%, rgba(255, 76, 67, 1) 44.36%, rgba(255, 73, 64, 1) 57.54%);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#FF4940' ,GradientType=0)";
+    background : linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 213, 211, 1) 4.94%, rgba(255, 176, 172, 1) 10.24%, rgba(255, 144, 139, 1) 15.93%, rgba(255, 118, 111, 1) 21.97%, rgba(255, 98, 90, 1) 28.51%, rgba(255, 84, 75, 1) 35.78%, rgba(255, 76, 67, 1) 44.36%, rgba(255, 73, 64, 1) 57.54%);
+    width : 132px;
+    height : 82px;
+    border-radius : 20px;
+    -moz-border-radius : 20px;
+    -webkit-border-radius : 20px;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF',endColorstr='#FF4940' , GradientType=0);
+}
+
+.fullscreen-svg {
+    width: 800px;
+    height: 480px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}

@@ -1,0 +1,475 @@
+{
+    "station": [
+        {
+            "id": "00001",
+            "name-ZH": "东客站",
+            "name-EN": "East Coach Terminal",
+            "lines": ["1", "2", "3","6"]
+        },
+        {
+            "id": "00002",
+            "name-ZH": "河湾",
+            "name-EN": "HEWAN",
+            "lines": ["4", "6", "7", "S1"]
+        },
+        {
+            "id": "00003",
+            "name-ZH": "南禅路",
+            "name-EN": "NANCHAN Road",
+            "lines": ["4", "6", "S1"]
+        },
+        {
+            "id": "00004",
+            "name-ZH": "桦南",
+            "name-EN": "HUANAN",
+            "lines": ["3", "6"]
+        },
+        {
+            "id": "00005",
+            "name-ZH": "传媒学院",
+            "name-EN": "ZTCC",
+            "lines": ["6"]
+        },
+        {
+            "id": "00006",
+            "name-ZH": "南三环",
+            "name-EN": "NANSANHUAN",
+            "lines": ["6", "10", "10E"]
+        },
+        {
+            "id": "00007",
+            "name-ZH": "紫荆路",
+            "name-EN": "ZIJING Road",
+            "lines": ["6", "XQ"]
+        },
+        {
+            "id": "00008",
+            "name-ZH": "高新东路",
+            "name-EN": "East GAOXIN Road",
+            "lines": ["6", "8"]
+        },
+        {
+            "id": "00009",
+            "name-ZH": "南郊小镇",
+            "name-EN": "NANJIAO XIAOZHEN",
+            "lines": ["6", "S6"]
+        },
+        {
+            "id": "00010",
+            "name-ZH": "营家边",
+            "name-EN": "YINGJIABIAN",
+            "lines": ["6"]
+        },
+        {
+            "id": "00011",
+            "name-ZH": "南郊镇站",
+            "name-EN": "NANJIAOZHEN Railway Station",
+            "lines": ["6", "R4", "CR"]
+        },
+        {
+            "id": "00012",
+            "name-ZH": "秋实",
+            "name-EN": "QIUSHI",
+            "lines": ["6", "GX"]
+        },
+        {
+            "id": "00013",
+            "name-ZH": "南曹",
+            "name-EN": "NANCAO",
+            "lines": ["6", "S7"]
+        },
+        {
+            "id": "00014",
+            "name-ZH": "涛岸北",
+            "name-EN": "TAO'An North",
+            "lines": ["6"]
+        },
+        {
+            "id": "00015",
+            "name-ZH": "涛岸",
+            "name-EN": "TAO'AN",
+            "lines": ["6"]
+        },
+        {
+            "id": "00016",
+            "name-ZH": "镇平",
+            "name-EN": "ZHENPING",
+            "lines": ["6", "R9"]
+        },
+        {
+            "id": "00017",
+            "name-ZH": "绫鸢机场",
+            "name-EN": "LINGYUAN Airport",
+            "lines": ["6", "S1", "CR"]
+        },
+        {
+            "id": "00018",
+            "name-ZH": "芳家边",
+            "name-EN": "FANGJIABIAN",
+            "lines": ["S6"]
+        },
+        {
+            "id": "00019",
+            "name-ZH": "麒北",
+            "name-EN": "QIBEI",
+            "lines": ["S6"]
+        },
+        {
+            "id": "00020",
+            "name-ZH": "西坡",
+            "name-EN": "XIPO",
+            "lines": ["S6"]
+        },
+        {
+            "id": "00021",
+            "name-ZH": "望马",
+            "name-EN": "WANGMA",
+            "lines": ["S6"]
+        },
+        {
+            "id": "00022",
+            "name-ZH": "鸿雁南路",
+            "name-EN": "South HONGYAN Road",
+            "lines": ["S6", "HS"]
+        },
+        {
+            "id": "00023",
+            "name-ZH": "后山",
+            "name-EN": "HOUSHAN",
+            "lines": ["S6", "15", "CR"]
+        },
+        {
+            "id": "00024",
+            "name-ZH": "九川",
+            "name-EN": "JIUCHUAN",
+            "lines": ["S6"]
+        },
+        {
+            "id": "00025",
+            "name-ZH": "环山大道",
+            "name-EN": "HUANSHAN Highway",
+            "lines": ["S6", "HS"]
+        },
+        {
+            "id": "00026",
+            "name-ZH": "十六川",
+            "name-EN": "SHILIUCHUAN",
+            "lines": ["S6"]
+        },
+        {
+            "id": "00027",
+            "name-ZH": "白庙",
+            "name-EN": "BAIMIAO",
+            "lines": ["S6"]
+        },
+        {
+            "id": "00028",
+            "name-ZH": "边城",
+            "name-EN": "BIANCHENG",
+            "lines": ["S6"]
+        },
+        {
+            "id": "00029",
+            "name-ZH": "白云亭",
+            "name-EN": "BAIYUNTING",
+            "lines": ["S6"]
+        },
+        {
+            "id": "00030",
+            "name-ZH": "兴业路",
+            "name-EN": "XINGYE Road",
+            "lines": ["S6"]
+        },
+        {
+            "id": "00031",
+            "name-ZH": "望京广场",
+            "name-EN": "WANGJING Square",
+            "lines": ["S6"]
+        },
+        {
+            "id": "00032",
+            "name-ZH": "卧龙站",
+            "name-EN": "WOLONG Railway Station",
+            "lines": ["S6", "CR"]
+        },
+        {
+            "id": "00033",
+            "name-ZH": "邗家巷",
+            "name-EN": "HANJIAXIANG",
+            "lines": ["1", "4", "15"]
+        },
+        {
+            "id": "00034",
+            "name-ZH": "钟园",
+            "name-EN": "ZHONGYUAN",
+            "lines": ["4", "CBD"]
+        },
+        {
+            "id": "00035",
+            "name-ZH": "南京路",
+            "name-EN": "NANJING Road",
+            "lines": ["2", "3", "4", "5", "S4"]
+        },
+        {
+            "id": "00036",
+            "name-ZH": "金茂广场",
+            "name-EN": "JINMAO Plaza",
+            "lines": ["4"]
+        },
+        {
+            "id": "00037",
+            "name-ZH": "上海路",
+            "name-EN": "SHANGHAI Road",
+            "lines": ["4", "14", "24"]
+        },
+        {
+            "id": "00038",
+            "name-ZH": "东街",
+            "name-EN": "DONGJIE",
+            "lines": ["4"]
+        },
+        {
+            "id": "00039",
+            "name-ZH": "珠江路",
+            "name-EN": "ZHUJIANG Road",
+            "lines": ["4", "16"]
+        },
+        {
+            "id": "00040",
+            "name-ZH": "蒋湾",
+            "name-EN": "JIANGWAN",
+            "lines": ["4", "7", "S2"]
+        },
+        {
+            "id": "00041",
+            "name-ZH": "程桥",
+            "name-EN": "CHENGQIAO",
+            "lines": ["4", "15"]
+        },
+        {
+            "id": "00042",
+            "name-ZH": "天桥",
+            "name-EN": "TIANQIAO",
+            "lines": ["4", "R6"]
+        },
+        {
+            "id": "00043",
+            "name-ZH": "机务段",
+            "name-EN": "JIWUDUAN",
+            "lines": ["3", "4"]
+        },
+        {
+            "id": "00044",
+            "name-ZH": "柘塘站",
+            "name-EN": "ZHETANG Railway Station",
+            "lines": ["3", "4", "12", "S1", "CR"]
+        },
+        {
+            "id": "00045",
+            "name-ZH": "湖西街",
+            "name-EN": "HUXIJIE",
+            "lines": ["4", "17", "18"]
+        },
+        {
+            "id": "00046",
+            "name-ZH": "清德门",
+            "name-EN": "QINGDEMEN",
+            "lines": ["4", "5", "S8"]
+        },
+        {
+            "id": "00047",
+            "name-ZH": "新巷",
+            "name-EN": "XINXIANG",
+            "lines": ["1", "4"]
+        },
+        {
+            "id": "00048",
+            "name-ZH": "晋元桥",
+            "name-EN": "JINYUANQIAO",
+            "lines": ["4", "24", "S4"]
+        },
+        {
+            "id": "00049",
+            "name-ZH": "万柳桥",
+            "name-EN": "WANLIUQIAO",
+            "lines": ["4", "12", "16"]
+        },
+        {
+            "id": "00050",
+            "name-ZH": "大宫门",
+            "name-EN": "DAGONGMEN",
+            "lines": ["4"]
+        },
+        {
+            "id": "00051",
+            "name-ZH": "南祥门",
+            "name-EN": "NANXIANGMEN",
+            "lines": ["2", "4"]
+        },
+        {
+            "id": "00052",
+            "name-ZH": "工大南",
+            "name-EN": "ZTTECH South",
+            "lines": ["4"]
+        },
+        {
+            "id": "00053",
+            "name-ZH": "南郊新城",
+            "name-EN": "NANJIAO XINCHENG",
+            "lines": ["S1", "R4", "GX"]
+        },
+        {
+            "id": "00054",
+            "name-ZH": "盐铁",
+            "name-EN": "YANTIE",
+            "lines": ["R4"]
+        },
+        {
+            "id": "00055",
+            "name-ZH": "港岛路",
+            "name-EN": "GANGDAO Road",
+            "lines": ["R4", "GX"]
+        },
+        {
+            "id": "00056",
+            "name-ZH": "南湾",
+            "name-EN": "NANWAN",
+            "lines": ["R4"]
+        },
+        {
+            "id": "00057",
+            "name-ZH": "北滨",
+            "name-EN": "BEIBIN",
+            "lines": ["R4"]
+        },
+        {
+            "id": "00058",
+            "name-ZH": "高新园",
+            "name-EN": "High-Tech Zone",
+            "lines": ["2", "R4"]
+        },
+        {
+            "id": "00059",
+            "name-ZH": "高新园北",
+            "name-EN": "High-Tech Zone North",
+            "lines": ["2", "20"]
+        },
+        {
+            "id": "00060",
+            "name-ZH": "高科管委会",
+            "name-EN": "High-Tech Zone Office",
+            "lines": ["R4", "GX"]
+        },
+        {
+            "id": "00061",
+            "name-ZH": "世纪广场",
+            "name-EN": "Century's Square",
+            "lines": ["8", "S2", "R4"]
+        },
+        {
+            "id": "00062",
+            "name-ZH": "泰山公园",
+            "name-EN": "TAISHAN Park",
+            "lines": ["8", "R4"]
+        },
+        {
+            "id": "00063",
+            "name-ZH": "武进路",
+            "name-EN": "WUJIN Road",
+            "lines": ["R4"]
+        },
+        {
+            "id": "00064",
+            "name-ZH": "茶屋",
+            "name-EN": "CHAWU",
+            "lines": ["10", "R4"]
+        },
+        {
+            "id": "00065",
+            "name-ZH": "新谯公园",
+            "name-EN": "XINQIAO Park",
+            "lines": ["R4"]
+        },
+        {
+            "id": "00066",
+            "name-ZH": "老南站",
+            "name-EN": "LAONANZHAN",
+            "lines": ["3", "R4"]
+        },
+        {
+            "id": "00067",
+            "name-ZH": "镇河",
+            "name-EN": "ZHENHE",
+            "lines": ["R9"]
+        },
+        {
+            "id": "00068",
+            "name-ZH": "山口",
+            "name-EN": "SHANKOU",
+            "lines": ["R9"]
+        },
+        {
+            "id": "00069",
+            "name-ZH": "古城影壁",
+            "name-EN": "GUCHENG YINGBI",
+            "lines": ["R9"]
+        },
+        {
+            "id": "00070",
+            "name-ZH": "新发西",
+            "name-EN": "XINFA West",
+            "lines": ["R9"]
+        },
+        {
+            "id": "00071",
+            "name-ZH": "影剧院",
+            "name-EN": "XINFA Theater",
+            "lines": ["R9"]
+        },
+        {
+            "id": "00072",
+            "name-ZH": "新发",
+            "name-EN": "XINFA",
+            "lines": ["R9"]
+        }
+    ],
+
+    "line":[
+        {
+            "id": "4",
+            "color": "#530AC6",
+            "station": ["00044", "00043", "00042", "00041", "00040", "00039", "00038", "00037", "00036", "00035", "00034", "00033", "00002", "00003", "00052", "00051", "00050", "00049", "00048", "00047", "00046", "00045"],
+            "isloop": true
+        },
+        {
+            "id": "6",
+            "color": "#06964B",
+            "station": ["00001", "00002", "00003", "00004", "00005", "00006", "00007", "00008", "00009", "00010", "00011", "00012", "00013", "00014", "00015", "00016", "00017"],
+            "isloop": false
+        },
+        {
+            "id": "S6",
+            "color": "#DAA5F9",
+            "station": ["00009", "00018", "00019", "00020", "00021", "00022", "00023", "00024", "00025", "00026", "00027", "00028", "00029", "00030", "00031", "00032"],
+            "isloop": false
+        },
+        {
+            "id": "R4",
+            "color": "#5292EF",
+            "station": ["00066", "00065", "00064", "00063", "00062", "00061", "00060", "00059", "00058", "00057", "00056", "00055", "00054", "00053", "00011"],
+            "isloop": false
+        },
+        {
+            "id": "R9",
+            "color": "#EFD61D",
+            "station": ["00072", "00071", "00070", "00069", "00068", "00067", "00016"],
+            "isloop": false
+        },
+        {
+            "id": "S6-R4",
+            "color": "#5292EF",
+            "station": ["00011", "00019"],
+            "isloop": false
+        }
+    ]
+}
