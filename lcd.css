@@ -2,6 +2,17 @@
     white-space: nowrap;
 }
 
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.module {
+    display: block;
+    visibility: hidden;
+}
 
 /* Banner styles */
 .BANNER_banner {
@@ -11,7 +22,6 @@
     width: 800px;
     height: 151px;
     background : linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(238, 238, 238, 1) 2.13%, rgba(183, 183, 183, 1) 9.75%, rgba(134, 134, 134, 1) 17.63%, rgba(93, 93, 93, 1) 25.6%, rgba(59, 59, 59, 1) 33.68%, rgba(33, 33, 33, 1) 41.9%, rgba(15, 15, 15, 1) 50.33%, rgba(4, 4, 4, 1) 59.09%, rgba(0, 0, 0, 1) 68.72%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5292EF', endColorstr='#FFFFFF', GradientType=0);
 }
 
 .BANNER_frame {
@@ -81,14 +91,14 @@
     left: 573px;
     top: 65px;
     font-size : 70px;
-    transform: translate(-50%, -50%);
+    transform: translate(0%, -50%);
 }
 .BANNER_text-Terminal-EN {
     text-align: center;
     left: 573px;
     top: 120px;
     font-size : 25px;
-    transform: translate(-50%, -50%);
+    transform: translate(0%, -50%);
 }
 
 .A1_text-Xia {
@@ -98,7 +108,7 @@
     font-weight : bold;
     font-size : 60px;
     color : #000000;
-    transform: translate(-50%, -50%);
+    transform: translate(0%, -50%);
 }
 .A1_text-ns {
     position: absolute;
@@ -107,7 +117,7 @@
     font-weight : bold;
     font-size : 25px;
     color : #000000;
-    transform: translate(-50%, -50%);
+    transform: translate(0%, -50%);
 }
 
 
@@ -166,18 +176,32 @@ svg {
 
 .A2-EN_text_0 {
     position: absolute;
+    width: 45px;
+    height: 190px;
+    display: flex;
+    flex-direction: column;
+    transform-origin: top;
+    writing-mode: vertical-lr;
+    /* position: absolute;
     top: 120px;
     transform: rotate(90deg);
-    transform-origin: left bottom;
+    transform-origin: left bottom; */
     font-family : 方正黑体_GBK;
     font-size : 40px;
     color : #ADADAD;
 }
 .A2-EN_text_1 {
     position: absolute;
+    width: 45px;
+    height: 190px;
+    display: flex;
+    flex-direction: column;
+    transform-origin: top;
+    writing-mode: vertical-lr;
+    /* position: absolute;
     top: 120px;
     transform: rotate(90deg);
-    transform-origin: left bottom;
+    transform-origin: left bottom; */
     font-family : 方正黑体_GBK;
     font-size : 40px;
     color : #000000;
@@ -223,7 +247,6 @@ svg {
     font-weight : bold;
     font-size : 150px;
     color : #000000;
-    transform: translate(-50%, 0);
 }
 .B1_cur-EN {
     position: absolute;
@@ -231,7 +254,6 @@ svg {
     font-weight : bold;
     font-size : 60px;
     color : #000000;
-    transform: translate(-50%, 0);
 }
 
 .B2-3_frame {
@@ -298,7 +320,6 @@ svg {
 .B2-3_text-terminal-ZH {
     position: absolute;
     top: 303px;
-    transform: translateX(-50%);
     font-family : 方正黑体_GBK;
     font-size : 45px;
     color : #000000;
@@ -306,7 +327,6 @@ svg {
 .B2-3_text-terminal-EN {
     position: absolute;
     top: 353px;
-    transform: translateX(-50%);
     font-family : 方正黑体_GBK;
     font-size : 20px;
     color : #000000;
@@ -316,7 +336,6 @@ svg {
     position: absolute;
     top: 383px;
     left: 146px;
-    transform: translateX(-50%);
 
     text-align: center;
     font-family : Bahnschrift;
@@ -328,7 +347,6 @@ svg {
     position: absolute;
     top: 383px;
     left: 400px;
-    transform: translateX(-50%);
 
     text-align: center;
     font-family : Bahnschrift;
@@ -340,7 +358,6 @@ svg {
     position: absolute;
     top: 383px;
     left: 654px;
-    transform: translateX(-50%);
 
     text-align: center;
     font-family : Bahnschrift;
@@ -350,9 +367,9 @@ svg {
 }
 .B2-3_frame-t1 {
     position: absolute;
+    transform: translateX(-50%);
     top: 383px;
     left: 146px;
-    transform: translateX(-50%);
     width : 132px;
     height : 82px;
     border-radius : 20px;
@@ -360,9 +377,9 @@ svg {
 }
 .B2-3_frame-t2 {
     position: absolute;
+    transform: translateX(-50%);
     top: 383px;
     left: 400px;
-    transform: translateX(-50%);
     width : 132px;
     height : 82px;
     border-radius : 20px;
@@ -370,9 +387,9 @@ svg {
 }
 .B2-3_frame-t3 {
     position: absolute;
+    transform: translateX(-50%);
     top: 383px;
     left: 654px;
-    transform: translateX(-50%);
     width : 132px;
     height : 82px;
     border-radius : 20px;
@@ -435,7 +452,6 @@ svg {
 .B2-2_text-terminal-ZH {
     position: absolute;
     top: 303px;
-    transform: translateX(-50%);
     font-family : 方正黑体_GBK;
     font-size : 45px;
     color : #000000;
@@ -443,7 +459,6 @@ svg {
 .B2-2_text-terminal-EN {
     position: absolute;
     top: 353px;
-    transform: translateX(-50%);
     font-family : 方正黑体_GBK;
     font-size : 20px;
     color : #000000;
@@ -453,7 +468,6 @@ svg {
     position: absolute;
     top: 383px;
     left: 226px;
-    transform: translateX(-50%);
 
     text-align: center;
     font-family : Bahnschrift;
@@ -465,7 +479,6 @@ svg {
     position: absolute;
     top: 383px;
     left: 574px;
-    transform: translateX(-50%);
 
     text-align: center;
     font-family : Bahnschrift;
@@ -475,9 +488,9 @@ svg {
 }
 .B2-2_frame-t1 {
     position: absolute;
+    transform: translateX(-50%);
     top: 383px;
     left: 226px;
-    transform: translateX(-50%);
     width : 132px;
     height : 82px;
     border-radius : 20px;
@@ -485,9 +498,9 @@ svg {
 }
 .B2-2_frame-t2 {
     position: absolute;
+    transform: translateX(-50%);
     top: 383px;
     left: 574px;
-    transform: translateX(-50%);
     width : 132px;
     height : 82px;
     border-radius : 20px;
@@ -542,7 +555,6 @@ svg {
 .B2-1_text-terminal-ZH {
     position: absolute;
     top: 303px;
-    transform: translateX(-50%);
     font-family : 方正黑体_GBK;
     font-size : 45px;
     color : #000000;
@@ -550,7 +562,6 @@ svg {
 .B2-1_text-terminal-EN {
     position: absolute;
     top: 353px;
-    transform: translateX(-50%);
     font-family : 方正黑体_GBK;
     font-size : 20px;
     color : #000000;
@@ -560,7 +571,6 @@ svg {
     position: absolute;
     top: 383px;
     left: 400px;
-    transform: translateX(-50%);
 
     text-align: center;
     font-family : Bahnschrift;
@@ -570,9 +580,9 @@ svg {
 }
 .B2-1_frame-t1 {
     position: absolute;
+    transform: translateX(-50%);
     top: 383px;
     left: 400px;
-    transform: translateX(-50%);
     width : 132px;
     height : 82px;
     border-radius : 20px;
@@ -582,16 +592,6 @@ svg {
 .fullscreen-svg {
     width: 800px;
     height: 480px;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-}
-
-iframe {
-    width: 800px;
-    height: 480px; /* 默认高度可以自定义 */
-    border: none;
-    visibility: hidden; /* 初始不可见 */
     position: absolute;
     top: 0px;
     left: 0px;

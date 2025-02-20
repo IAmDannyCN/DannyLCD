@@ -4,7 +4,7 @@ const ctx = canvas.getContext('2d');
 
 // 根据CSS类名字典，为每个类名设置最大宽度
 const maxWidthDict = {
-    '.BANNER_text-type-zh': 230,
+    '.BANNER_text-type-zh': 225,
     '.BANNER_text-type-en': 218,
     '.BANNER_text-Terminal-ZH': 360,
     '.BANNER_text-Terminal-EN': 360,
@@ -36,14 +36,17 @@ const maxWidthDict = {
     '.B2-1_text-terminal-EN': 240,
     '.B2-1_text_t1': 128,
 };
-scaleYList = ['.A2-ZH_text_0', '.A2-ZH_text_1'];
-
-// 提取现有 transform 中的 scaleX
-function getCurrentScaleX(transform) {
-    const scaleXRegex = /scaleX\(([^)]+)\)/;
-    const match = transform.match(scaleXRegex);
-    return match ? match[1] : null;
-}
+scaleYList = ['.A2-ZH_text_0', '.A2-ZH_text_1', '.A2-EN_text_0', '.A2-EN_text_1'];
+transformXList = [  '.BANNER_text-Terminal-ZH', '.BANNER_text-Terminal-EN',
+                    '.A1_text-Xia', '.A1_text-ns',
+                    '.B1_cur-ZH', '.B1_cur-EN',
+                    '.B2-3_text-terminal-ZH', '.B2-3_text-terminal-EN',
+                    '.B2-3_text_t1', '.B2-3_text_t2', '.B2-3_text_t3',
+                    '.B2-2_text-terminal-ZH', '.B2-2_text-terminal-EN',
+                    '.B2-2_text_t1', '.B2-2_text_t2',
+                    '.B2-1_text-terminal-ZH', '.B2-1_text-terminal-EN',
+                    '.B2-1_text_t1'
+                ]
 
 // 提取元素的字体样式
 function getFontStyles(element) {
@@ -54,187 +57,86 @@ function getFontStyles(element) {
     };
 }
 
-// 获取元素的当前transform（从computed style）
-function getCurrentTransform(element) {
-    const computedStyle = getComputedStyle(element);
-    return computedStyle.transform;
-}
-
-// 更新transform并设置scaleX
-function updateTextScale() {
-    Object.entries(maxWidthDict).forEach(([className, maxWidth]) => {
-        
-        // 获取所有需要应用scaleX的元素
-        const textElements = document.querySelectorAll(className);
-        
-        textElements.forEach(element => {
-            const text = element.textContent; // 获取文本内容
-
-            console.error(text)
-            console.error(element.style.transform)
-
-            // 提取字体样式
-            const { fontFamily, fontSize } = getFontStyles(element);
-            
-            // 设置 canvas 上下文的字体
-            ctx.font = `${fontSize} ${fontFamily}`; // 动态设置字体
-
-            const textWidth = ctx.measureText(text).width; // 使用canvas测量文本宽度
-            const scaleValue = textWidth > maxWidth ? maxWidth / textWidth : 1; // 计算scaleX值
-            
-            // 获取现有的transform属性（包括CSS定义的部分）
-            let currentTransform = element.style.transform; //getCurrentTransform(element);
-            console.error(">>>", currentTransform)
-
-            if(scaleYList.includes(className)) {
-                currentTransform = currentTransform === 'none'? `scaleY(${scaleValue})` : `${currentTransform} scaleY(${scaleValue})`;
-            } else {
-                currentTransform = currentTransform === 'none'? `scaleX(${scaleValue})` : `${currentTransform} scaleX(${scaleValue})`;
-            }
-            
-            // 更新 transform 属性
-            console.error(element.style.transform)
-            console.error(">>>", currentTransform)
-            element.style.transform = currentTransform;
-            console.error(element.style.transform)
-        });
-    });
-}
-
-// function updateTextScale() {
-//     Object.entries(maxWidthDict).forEach(([className, maxWidth]) => {
-//         // 获取所有需要应用scaleX的元素，包括iframe中的元素
-//         const textElements = document.querySelectorAll(className);
-        
-//         textElements.forEach(element => {
-//             const text = element.textContent; // 获取文本内容
-
-//             console.error(text)
-//             console.error(element.style.transform)
-
-//             // 提取字体样式
-//             const { fontFamily, fontSize } = getFontStyles(element);
-            
-//             // 设置 canvas 上下文的字体
-//             ctx.font = `${fontSize} ${fontFamily}`; // 动态设置字体
-            
-//             const textWidth = ctx.measureText(text).width; // 使用canvas测量文本宽度
-//             const scaleValue = textWidth > maxWidth ? maxWidth / textWidth : 1; // 计算scaleX值
-            
-//             // 获取现有的transform属性（包括CSS定义的部分）
-//             let currentTransform = getCurrentTransform(element);
-
-//             if (scaleYList.includes(className)) {
-//                 currentTransform = currentTransform === 'none' ? `scaleY(${scaleValue})` : `${currentTransform} scaleY(${scaleValue})`;
-//             } else {
-//                 currentTransform = currentTransform === 'none' ? `scaleX(${scaleValue})` : `${currentTransform} scaleX(${scaleValue})`;
-//             }
-            
-//             // 更新 transform 属性
-//             console.error(element.style.transform)
-//             element.style.transform = currentTransform;
-//             console.error(element.style.transform)
-//         });
-
-//         // 处理 iframe 内的内容
-//         const iframes = document.querySelectorAll('iframe');
-//         iframes.forEach(iframe => {
-//             const iframeDocument = iframe.contentWindow.document;
-
-//             // 查找 iframe 内部的相应元素
-//             const iframeTextElements = iframeDocument.querySelectorAll(className);
-//             iframeTextElements.forEach(element => {
-//                 const text = element.textContent;
-//                 const { fontFamily, fontSize } = getFontStyles(element);
-
-//                 ctx.font = `${fontSize} ${fontFamily}`;
-//                 const textWidth = ctx.measureText(text).width;
-//                 const scaleValue = textWidth > maxWidth ? maxWidth / textWidth : 1;
-
-//                 let currentTransform = getCurrentTransform(element);
-
-//                 if (scaleYList.includes(className)) {
-//                     currentTransform = currentTransform === 'none' ? `scaleY(${scaleValue})` : `${currentTransform} scaleY(${scaleValue})`;
-//                 } else {
-//                     currentTransform = currentTransform === 'none' ? `scaleX(${scaleValue})` : `${currentTransform} scaleX(${scaleValue})`;
-//                 }
-
-//                 element.style.transform = currentTransform;
-//             });
-//         });
-//     });
-// }
-
-
-// // 显示指定的 iframe
-// function show_iframe(iframe_name) {
-//     var iframe = document.getElementById(iframe_name);
-//     if (iframe) {
-//         iframe.style.display = 'block';  // 显示 iframe
-//     }
-// }
-
-// // 隐藏指定的 iframe
-// function hide_iframe(iframe_name) {
-//     var iframe = document.getElementById(iframe_name);
-//     if (iframe) {
-//         iframe.style.display = 'none';  // 隐藏 iframe
-//     }
-// }
-
-// 显示指定的 iframe
-function show_iframe(iframe_name) {
-    var iframe = document.getElementById(iframe_name);
-    if (iframe) {
-        // 确保 iframe 可见
-        iframe.style.visibility = 'visible';
-
-        // 等待 iframe 加载完成，使用 onload 确保内容完全加载
-        iframe.onload = function() {
-            // 获取 iframe 的尺寸
-            var iframeWidth = iframe.offsetWidth;
-            var iframeHeight = iframe.offsetHeight;
-
-            // 获取窗口的宽度和高度
-            var windowWidth = window.innerWidth;
-            var windowHeight = window.innerHeight;
-
-            // 计算偏移量以居中显示
-            var offsetX = (windowWidth - iframeWidth) / 2;
-            var offsetY = (windowHeight - iframeHeight) / 2;
-
-            // 设置 transform 来确保居中
-            iframe.style.transform = `translate(${offsetX}px, ${offsetY}px)`;  // 动态居中
-            iframe.updateTextScale();
-        };
+function show_module(moduleId) {
+    const targetModule = document.getElementById(moduleId);
+    if (targetModule) {
+        targetModule.style.visibility = 'visible'; // 显示模块
     }
 }
 
-// 隐藏指定的 iframe
-function hide_iframe(iframe_name) {
-    var iframe = document.getElementById(iframe_name);
-    if (iframe) {
-        iframe.style.visibility = 'hidden'; // 隐藏 iframe
+function hide_module(moduleId) {
+    const targetModule = document.getElementById(moduleId);
+    if (targetModule) {
+        targetModule.style.visibility = 'hidden'; // 隐藏模块
     }
 }
 
-// 重置函数：清除所有 SVG 元素，隐藏所有 iframe，显示 banner
-function reset_iframe() {
+function reset_module(skip_list=[]) {
     // 1. 清除页面上所有的 SVG 元素
     var svgs = document.querySelectorAll('.fullscreen-svg');
     svgs.forEach(function(svg) {
         svg.remove();  // 删除每一个 svg 元素
     });
 
-    // 2. 将所有 iframe 设置为隐藏
-    var iframes = document.querySelectorAll('iframe');
-    iframes.forEach(function(iframe) {
-        iframe.style.visibility = 'hidden';  // 隐藏 iframe
+    // 2. 将所有 module 设置为隐藏
+    const modules = document.querySelectorAll('.module');
+    modules.forEach(module => {
+        if(!skip_list.includes(module.id)) {
+            module.style.visibility = 'hidden';
+        }
     });
 
-    // 3. 将 banner iframe 设置为显示
-    var banner = document.getElementById('banner');
-    if (banner) {
-        banner.style.visibility = 'visible';  // 显示 banner iframe
+    // 3. 将 banner module 设置为显示
+    show_module('banner')
+}
+
+function change_scaleX(element_id, target_scaleX, is_scaleY, is_transformX) {
+    const element = document.getElementById(element_id);
+    const currentTransform = window.getComputedStyle(element).transform;
+
+    // 如果没有transform样式，初始化为空矩阵
+    if (currentTransform === 'none') {
+        element.style.transform = `matrix(1, 0, 0, 1, 0, 0)`;
+        // return;
     }
+
+    const matrix = new DOMMatrix(currentTransform);
+    
+    if(!is_scaleY) {
+        matrix.a = target_scaleX;
+    } else {
+        matrix.d = target_scaleX;
+    }
+    
+    if(is_transformX) {
+        matrix.e = -0.5 * element.offsetWidth;
+    }
+
+    // console.log(element_id, is_scaleY, is_transformX);
+    // console.log(window.getComputedStyle(document.getElementById(element_id)).transform);
+
+    element.style.transform = matrix.toString();
+
+    // console.log(window.getComputedStyle(document.getElementById(element_id)).transform);
+}
+
+function updateTextScale() {
+    Object.entries(maxWidthDict).forEach(([className, maxWidth]) => {
+        const textElements = document.querySelectorAll(className);
+        
+        textElements.forEach(element => {
+            const text = element.textContent; // 获取文本内容
+
+            // 提取字体样式
+            const { fontFamily, fontSize } = getFontStyles(element);
+            
+            // 设置 canvas 上下文的字体
+            ctx.font = `${fontSize} ${fontFamily}`; // 动态设置字体
+            
+            const textWidth = ctx.measureText(text).width; // 使用canvas测量文本宽度
+            const scaleValue = textWidth > maxWidth ? maxWidth / textWidth : 1; // 计算scaleX值
+            
+            change_scaleX(element.id, scaleValue, scaleYList.includes(className), transformXList.includes(className));
+        });
+    });
 }
