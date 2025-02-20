@@ -1,8 +1,6 @@
-// 创建一个离屏 canvas，用于测量文本宽度
 const canvas = document.createElement('canvas');
 const ctx = canvas.getContext('2d');
 
-// 根据CSS类名字典，为每个类名设置最大宽度
 const maxWidthDict = {
     '.BANNER_text-type-zh': 225,
     '.BANNER_text-type-en': 218,
@@ -48,7 +46,6 @@ transformXList = [  '.BANNER_text-Terminal-ZH', '.BANNER_text-Terminal-EN',
                     '.B2-1_text_t1'
                 ]
 
-// 提取元素的字体样式
 function getFontStyles(element) {
     const computedStyle = getComputedStyle(element);
     return {
@@ -60,23 +57,31 @@ function getFontStyles(element) {
 function show_module(moduleId) {
     const targetModule = document.getElementById(moduleId);
     if (targetModule) {
-        targetModule.style.visibility = 'visible'; // 显示模块
+        targetModule.style.visibility = 'visible';
     }
 }
 
 function hide_module(moduleId) {
     const targetModule = document.getElementById(moduleId);
     if (targetModule) {
-        targetModule.style.visibility = 'hidden'; // 隐藏模块
+        targetModule.style.visibility = 'hidden';
     }
 }
 
-function reset_module(skip_list=[]) {
-    // 1. 清除页面上所有的 SVG 元素
-    var svgs = document.querySelectorAll('.fullscreen-svg');
+function clear_svg(svg_class) {
+    var svgs = document.querySelectorAll(svg_class);
     svgs.forEach(function(svg) {
-        svg.remove();  // 删除每一个 svg 元素
+        svg.remove();
     });
+}
+
+function reset_module(skip_list=[], clear_transfer_svg=true) {
+    // 1. 清除页面上所有的 SVG 元素
+    clear_svg('.fullscreen-svg');
+    if(clear_transfer_svg) {
+        clear_svg('.transferA-svg');
+        clear_svg('.transferB-svg');
+    }
 
     // 2. 将所有 module 设置为隐藏
     const modules = document.querySelectorAll('.module');
@@ -125,16 +130,14 @@ function updateTextScale() {
         const textElements = document.querySelectorAll(className);
         
         textElements.forEach(element => {
-            const text = element.textContent; // 获取文本内容
+            const text = element.textContent;
 
-            // 提取字体样式
             const { fontFamily, fontSize } = getFontStyles(element);
             
-            // 设置 canvas 上下文的字体
-            ctx.font = `${fontSize} ${fontFamily}`; // 动态设置字体
+            ctx.font = `${fontSize} ${fontFamily}`;
             
-            const textWidth = ctx.measureText(text).width; // 使用canvas测量文本宽度
-            const scaleValue = textWidth > maxWidth ? maxWidth / textWidth : 1; // 计算scaleX值
+            const textWidth = ctx.measureText(text).width;
+            const scaleValue = textWidth > maxWidth ? maxWidth / textWidth : 1;
             
             change_scaleX(element.id, scaleValue, scaleYList.includes(className), transformXList.includes(className));
         });

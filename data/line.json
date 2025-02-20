@@ -4,7 +4,7 @@
             "id": "00001",
             "name-ZH": "东客站",
             "name-EN": "East Coach Terminal",
-            "lines": ["1", "2", "3","6"]
+            "lines": ["1", "2", "3", "6"]
         },
         {
             "id": "00002",
@@ -81,7 +81,7 @@
         {
             "id": "00014",
             "name-ZH": "涛岸北",
-            "name-EN": "TAO'An North",
+            "name-EN": "TAO'AN North",
             "lines": ["6"]
         },
         {

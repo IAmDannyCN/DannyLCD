@@ -10,8 +10,8 @@ line_json_file = "data/line.json"
 train_json_file = "data/train.json"
 
 def get_time():
-    # return "072745"
-    return "06" + datetime.now().strftime("%H%M%S")[2:]
+    # return "070800"
+    return "07" + datetime.now().strftime("%H%M%S")[2:]
     return datetime.now().strftime("%H%M%S")
 
 def get_interval(t1, t2):
@@ -28,17 +28,17 @@ def show(name):
 def hide(name):
     js(f'hide_module("{name}")')
 
-def reset(name='banner', skip_list=[]):
-    js(f'reset_module({skip_list})')
+def reset(name='banner', skip_list=[], clear_transfer_svg=True):
+    js(f'reset_module({skip_list}, {int(clear_transfer_svg)})')
     show(name)
 
-def display(name, skip_list=[], sleep_time=0, target_time="999999"):
-    reset(name, skip_list)
+def display(name, skip_list=[], sleep_time=0, target_time="999999", clear_transfer_svg=True):
+    reset(name, skip_list, clear_transfer_svg)
     if sleep_time != 0:
         sleep(min(sleep_time, get_interval(get_time(), target_time)))
     
-def addsvg(svg_name, svg_id):
-    addsvg_code = f"""
+def addfullscreensvg(svg_name, svg_id):
+    addfullscreensvg_code = f"""
     const svgObject = document.createElement('object');
     svgObject.setAttribute('data', '{svg_name}');
     svgObject.setAttribute('type', 'image/svg+xml');
@@ -46,8 +46,36 @@ def addsvg(svg_name, svg_id):
     svgObject.setAttribute('id', '{svg_id}');
     document.body.appendChild(svgObject);
     """
+    js(addfullscreensvg_code)
+
+def addtransferAsvg(svg_name, svg_id, module_name, top, left, scale=1): 
+    addsvg_code = f"""
+    const svgObject = document.createElement('object');
+    svgObject.setAttribute('data', '{svg_name}');
+    svgObject.setAttribute('type', 'image/svg+xml');
+    svgObject.classList.add('transferA-svg'); 
+    svgObject.setAttribute('id', '{svg_id}');
+    svgObject.style.top = '{top}px';
+    svgObject.style.left = '{left}px';
+    svgObject.style.transform = 'scale({scale})';
+    document.getElementById('{module_name}').appendChild(svgObject);
+    """
     js(addsvg_code)
-    
+
+def addtransferBsvg(svg_name, svg_id, module_name, top, left, scale=1): 
+    addsvg_code = f"""
+    const svgObject = document.createElement('object');
+    svgObject.setAttribute('data', '{svg_name}');
+    svgObject.setAttribute('type', 'image/svg+xml');
+    svgObject.classList.add('transferB-svg'); 
+    svgObject.setAttribute('id', '{svg_id}');
+    svgObject.style.top = '{top}px';
+    svgObject.style.left = '{left}px';
+    svgObject.style.transform = 'scale({scale})';
+    document.getElementById('{module_name}').appendChild(svgObject);
+    """
+    js(addsvg_code)
+
 def delbyclass(class_name):
     delbyclass_code = f"""
     const elements = document.querySelectorAll('.{class_name}');
@@ -127,6 +155,72 @@ def get_svg_name(train_id):
     elif train_id[0:3] == "EWL":
         return "A1-RAPID6S6"
 
+def get_A2svgA_transform(num):
+    transform = []
+    if num == 1:
+        transform.append({
+            "top": 453-41/2,
+            "left": 63-41/2,
+            "scale": 1
+        })
+    elif num == 2:
+        transform.append({
+            "top": 453-41/2,
+            "left": 63-41/2-23,
+            "scale": 1
+        })
+        transform.append({
+            "top": 453-41/2,
+            "left": 63-41/2+23,
+            "scale": 1
+        })
+    # elif num == 3:
+    #     transform.append({
+    #         "top": 453-41/2,
+    #         "left": 63-41/2-30,
+    #         "scale": 0.7
+    #     })
+    #     transform.append({
+    #         "top": 453-41/2,
+    #         "left": 63-41/2,
+    #         "scale": 0.7
+    #     })
+    #     transform.append({
+    #         "top": 453-41/2,
+    #         "left": 63-41/2+30,
+    #         "scale": 0.7
+    #     })
+    else:
+        upper_num = num // 2
+        lower_num = num - upper_num
+        for i in range(upper_num):
+            transform.append({
+                "top": 453-41/2-12,
+                "left": 63-41/2-25*(upper_num-1)/2+25*i,
+                "scale": 0.6
+            })
+        for i in range(lower_num):
+            transform.append({
+                "top": 453-41/2+13,
+                "left": 63-41/2-25*(lower_num-1)/2+25*i,
+                "scale": 0.6
+            })
+    return transform
+
+def get_B1svg_transform(num):
+    transform = []
+    for i in range(num):
+        transform.append(({
+            "top": 410,
+            "left": 400-30-185*(num-1)/2+185*i-35,
+            "scale": 1.5
+        }, {
+            "top": 410,
+            "left": 400-30-185*(num-1)/2+185*i+35,
+            "scale": 1.5
+        }))
+    return transform
+
 def display_banner():
     train_name_ZH, train_name_EN = get_train_name(cur_train_pre["id"])
     change_content("BANNER_text-type-zh", train_name_ZH)
@@ -197,6 +291,7 @@ def display_A2(past_stations, future_stations, target_time):
     
     for i in range(7):
         station = display_stations[i]
+        # above line
         if station["type"] == 0 or station["type"] == 1:
             change_class(f"A2-LINE_frame_{i}", "A2-LINE_frame_t0")
             change_class(f"A2-EN_block_{i}", "A2-EN_text_0")
@@ -212,10 +307,23 @@ def display_A2(past_stations, future_stations, target_time):
             else:
                 change_content(f"A2-LINE_t{i}", f"{time_interval}")
         
+        # line
         change_content(f"A2-ZH_block_{i}", station["name-ZH"])
         change_content(f"A2-EN_block_{i}", station["name-EN"])
         if i != 6 or (i == 6 and end_color_flag):
             change_bg(f"A2-LINE_seg_{i+1}", station["color"])
+        
+        # below line
+        if station["type"] != 0:
+            transfer = [line for line in station["transfer"] if line not in cur_lines]
+            if len(transfer) == 0:
+                continue
+            transform = get_A2svgA_transform(len(transfer))
+            for line_idx, line in enumerate(transfer):
+                addtransferAsvg(f"SVG/{line}-1.svg", f"A2-transferA-{i}-{line_idx}", module_name="A2-line",
+                                top=transform[line_idx]["top"],
+                                left=transform[line_idx]["left"] + 100 * i,
+                                scale=transform[line_idx]["scale"])
     
     change_bg("A2-LINE_seg_0", begin_color)
     if cur_train_pre["id"][0] == "L":
@@ -224,10 +332,34 @@ def display_A2(past_stations, future_stations, target_time):
     
     color = cur_train_pre["color"]
     js(f"document.getElementById(\"A2-line-svg\").getElementsByTagName(\"polygon\")[0].setAttribute(\"fill\", \"{color}\");")
+    reset("A2-line", clear_transfer_svg=False)
+    display("A2-ZH", ["A2-line"], 10, target_time, clear_transfer_svg=False)
+    display("A2-EN", ["A2-line"], 10, target_time, clear_transfer_svg=False)
+
+def display_B1(station, show_time, target_time):
+    change_content("B1_cur-ZH", station["name-ZH"] + " 到了")
+    change_content("B1_cur-EN", "Arriving at: " + station["name-EN"])
     
-    reset("A2-line")
-    display("A2-ZH", ["A2-line"], 10, target_time)
-    display("A2-EN", ["A2-line"], 10, target_time)
+    transfer = [line for line in station["lines"] if line not in cur_lines]
+    transform = get_B1svg_transform(len(transfer))
+    if(len(transfer) == 0):
+        js("document.getElementById('B1_cur-ZH').style.top = '180px';")
+        js("document.getElementById('B1_cur-EN').style.top = '350px';")
+    else:
+        js("document.getElementById('B1_cur-ZH').style.top = '150px';")
+        js("document.getElementById('B1_cur-EN').style.top = '320px';")
+    reset("B1")
+    for line_idx, line in enumerate(transfer):
+        addtransferAsvg(f"SVG/{line}-1.svg", f"B1-transferA-{line_idx}", module_name="B1",
+                        top=transform[line_idx][0]["top"],
+                        left=transform[line_idx][0]["left"],
+                        scale=transform[line_idx][0]["scale"])
+        addtransferBsvg(f"SVG/{line}-2.svg", f"B1-transferB-{line_idx}", module_name="B1",
+                        top=transform[line_idx][1]["top"],
+                        left=transform[line_idx][1]["left"],
+                        scale=transform[line_idx][1]["scale"])
+    
+    sleep(min(show_time, get_interval(get_time(), target_time)))
 
 def prepare_B2(station_id, cur_dir, cur_time):
     candidate_dict = {}
@@ -288,8 +420,7 @@ def display_B2(B2_list, target_time):
         change_bg(f"B2-{l}_type{i}-EN-frame", trans[1]["color"])
     
     display(f"B2-{l}", [], 3 + 3 * l, target_time)
-    
-
+   
 def main_loop(mm):
     total_station_num = len(cur_train)
     
@@ -303,34 +434,34 @@ def main_loop(mm):
             while get_time() < target_time:
                 # A1
                 display_A1(cur_train[station_idx], 0, target_time)
-                addsvg("SVG/A1-map.svg", "A1-map-svg")
+                addfullscreensvg("SVG/A1-map.svg", "A1-map-svg")
                 svg_name = get_svg_name(cur_train_pre["id"])
-                for _ in range(5):
-                    sleep(0.5)
-                    addsvg(f"SVG/{svg_name}.svg", f"{svg_name}-svg")
+                sleep(0.5)
+                for _ in range(10):
+                    addfullscreensvg(f"SVG/{svg_name}.svg", f"{svg_name}-svg")
                     sleep(0.5)
                     delbyid(f"{svg_name}-svg")
+                    sleep(0.5)
                     if get_time() >= target_time:
                         break
                 # A2
+                if get_time() >= target_time:
+                    break
                 past_stations = cur_train[:station_idx]
                 future_stations = cur_train[station_idx:]
                 display_A2(past_stations, future_stations, target_time)
             
         elif status == "B":
             target_time = cur_train[station_idx]["t2"]
-            B2_list = prepare_B2(cur_train[station_idx]["id"], cur_train[station_idx]["dir"], cur_train[station_idx]["t1"])
             
-            if len(B2_list) == 0:
-                change_content("B1_cur-ZH", station_data_by_id[cur_train[station_idx]["id"]]["name-ZH"])
-                change_content("B1_cur-EN", station_data_by_id[cur_train[station_idx]["id"]]["name-EN"])
-                display("B1", [], 999999, target_time)
-            else:
-                while get_time() < target_time:
+            while get_time() < target_time:
+                B2_list = prepare_B2(cur_train[station_idx]["id"], cur_train[station_idx]["dir"], cur_train[station_idx]["t1"])
+                if len(B2_list) == 0:
                     # B1
-                    change_content("B1_cur-ZH", station_data_by_id[cur_train[station_idx]["id"]]["name-ZH"])
-                    change_content("B1_cur-EN", station_data_by_id[cur_train[station_idx]["id"]]["name-EN"])
-                    display("B1", [], 6, target_time)
+                    display_B1(station_data_by_id[cur_train[station_idx]["id"]], 999999, target_time)
+                else:
+                    # B1
+                    display_B1(station_data_by_id[cur_train[station_idx]["id"]], 10, target_time)
                     # B2
                     display_B2(B2_list, target_time)
         else:
@@ -341,6 +472,7 @@ def main():
     global window
     global line_data, train_data, cur_train_pre, cur_train
     global station_data_by_id, line_data_by_id
+    global cur_lines
     
     with open(line_json_file, "r") as f:
         line_data = json.load(f)
@@ -361,10 +493,10 @@ def main():
         if train["id"] == train_id:
             cur_train_list.append(train)
     if len(cur_train_list) == 0:
-        print(f"Train with ID {cur_train} not found.")
+        print(f"Train with ID {train_id} not found.")
         exit(0)
     elif len(cur_train_list) > 1:
-        print(f"Multiple train with ID {cur_train} is found. Please check file.")
+        print(f"Multiple train with ID {train_id} is found. Please check file.")
         exit(0)
     cur_train_pre = cur_train_list[0]
     cur_train = []
@@ -377,6 +509,10 @@ def main():
                 "line": train["line"],
                 "dir": train["dir"]
             })
+    
+    cur_lines = []
+    for train in cur_train_pre["train"]:
+        cur_lines.append(train["line"])
     
     html_path = "index.html"
     window = webview.create_window("LCD", html_path, width=800, height=480)

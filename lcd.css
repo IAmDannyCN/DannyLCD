@@ -121,7 +121,7 @@ body {
 }
 
 
-svg {
+.A2_line-svg {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -245,14 +245,16 @@ svg {
     position: absolute;
     font-family : 微软雅黑;
     font-weight : bold;
-    font-size : 150px;
+    /* font-size : 150px; */
+    font-size: 130px;
     color : #000000;
 }
 .B1_cur-EN {
     position: absolute;
     font-family : 微软雅黑;
     font-weight : bold;
-    font-size : 60px;
+    /* font-size : 60px; */
+    font-size: 45px;
     color : #000000;
 }
 
@@ -595,4 +597,16 @@ svg {
     position: absolute;
     top: 0px;
     left: 0px;
+}
+
+.transferA-svg {
+    width: 41px;
+    height: 41px;
+    position: absolute;
+}
+
+.transferB-svg {
+    width: 55px;
+    height: 41px;
+    position: absolute;
 }
