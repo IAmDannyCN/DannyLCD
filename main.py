@@ -10,8 +10,8 @@ line_json_file = "data/line.json"
 train_json_file = "data/train.json"
 
 def get_time():
-    # return "070800"
-    return "07" + datetime.now().strftime("%H%M%S")[2:]
+    return "065800"
+    return "072" + datetime.now().strftime("%H%M%S")[3:]
     return datetime.now().strftime("%H%M%S")
 
 def get_interval(t1, t2):
@@ -20,7 +20,7 @@ def get_interval(t1, t2):
 def js(js_code):
     # print(js_code)
     window.evaluate_js(js_code)
-        
+
 def show(name):
     js("updateTextScale();")
     js(f'show_module("{name}")')
@@ -76,6 +76,39 @@ def addtransferBsvg(svg_name, svg_id, module_name, top, left, scale=1):
     """
     js(addsvg_code)
 
+def adddotsvg(mappos): 
+    addsvg_code = f"""
+    const svgObject = document.createElement('object');
+    svgObject.setAttribute('data', './SVG/A1-dot.svg');
+    svgObject.setAttribute('type', 'image/svg+xml');
+    svgObject.classList.add('dot-svg'); 
+    svgObject.setAttribute('id', 'dot-svg');
+    svgObject.style.top = '{mappos[0] - 54 / 2}px';
+    svgObject.style.left = '{mappos[1] - 54 / 2}px';
+    svgObject.style.transform = 'scale(0.75)';
+    svgObject.style.transformOrigin = '50% 50%';
+    svgObject.style.zIndex = 9999;
+    document.getElementById('A1').appendChild(svgObject);
+    """
+    js(addsvg_code)
+
+def addinnershadowsvg(svg_name, svg_id, top, left, width, height, module_name, is_const):
+    svg_class = "inner-shadow-svg-const" if is_const else "inner-shadow-svg"
+    addinnershadowsvg_code = f"""
+    const svgObject = document.createElement('object');
+    svgObject.setAttribute('data', './SVG/{svg_name}.svg');
+    svgObject.setAttribute('type', 'image/svg+xml');
+    svgObject.classList.add('{svg_class}');
+    svgObject.setAttribute('id', '{svg_id}');
+    svgObject.style.top = '{top}px';
+    svgObject.style.left = '{left}px';
+    svgObject.style.width = '{width}px';
+    svgObject.style.height = '{height}px';
+    svgObject.style.zIndex = 9999;
+    document.getElementById('{module_name}').appendChild(svgObject);
+    """
+    js(addinnershadowsvg_code)
+
 def delbyclass(class_name):
     delbyclass_code = f"""
     const elements = document.querySelectorAll('.{class_name}');
@@ -88,6 +121,14 @@ def delbyid(id_name):
     if (element) { element.remove(); }
     """
     js(delbyid_code)
+
+def showbyid(id_name):
+    showbyid_code = f"""document.getElementById("{id_name}").style.display = "block";"""
+    js(showbyid_code)
+
+def hidebyid(id_name):
+    hidebyid_code = f"""document.getElementById("{id_name}").style.display = "none";"""
+    js(hidebyid_code)
 
 def change_attribute(id_name, attribute_name, content):
     change_code = f"""document.getElementById("{id_name}").{attribute_name} = "{content}";"""
@@ -103,6 +144,12 @@ def change_bgimg(class_name, background):
     change_code = f"""document.querySelector("{class_name}").style.backgroundImage = "{background}"; """
     js(change_code)
 
+def time_thread():
+    while True:
+        current_time = get_time()
+        seconds_to_next_minute = 60 - int(current_time[4:6])
+        change_content("BANNER_text-ti", current_time[:2] + ":" + current_time[2:4])
+        sleep(seconds_to_next_minute)
 
 def get_status(cur_time):
     for idx, plan in enumerate(cur_train):
@@ -223,22 +270,36 @@ def get_B1svg_transform(num):
 
 def display_banner():
     train_name_ZH, train_name_EN = get_train_name(cur_train_pre["id"])
+    addinnershadowsvg(svg_name="banner-inner-shadow", svg_id="BANNER_inner-shadow",
+                     top=24, left=20,
+                     width=250, height=106,
+                     module_name="banner", is_const=True)
     change_content("BANNER_text-type-zh", train_name_ZH)
     change_content("BANNER_text-type-en", train_name_EN)
-    change_content("BANNER_text-Terminal-ZH", station_data_by_id[cur_train[-1]["id"]]["name-ZH"])
-    change_content("BANNER_text-Terminal-EN", "To " + station_data_by_id[cur_train[-1]["id"]]["name-EN"])
+    # change_content("BANNER_text-Terminal-ZH", station_data_by_id[cur_train[-1]["id"]]["name-ZH"])
+    # change_content("BANNER_text-Terminal-EN", "To " + station_data_by_id[cur_train[-1]["id"]]["name-EN"])
     change_bg("BANNER_frame-ZH", cur_train_pre["color"])
     change_bg("BANNER_frame-EN", cur_train_pre["color"])
+    change_bg("BANNER_frame-ti", cur_train_pre["color"])
     col = cur_train_pre["subcolor"]
     colr = int(col[1:3], 16) / 255
     colg = int(col[3:5], 16) / 255
     colb = int(col[5:7], 16) / 255
     change_bgimg(".BANNER_banner", f"linear-gradient(0deg, rgba({int(255)}, {int(255)}, {int(255)}, 1) 0%, rgba({int(238+colr*17)}, {int(238+colg*17)}, {int(238+colb*17)}, 1) 2.13%, rgba({int(183+colr*72)}, {int(183+colg*72)}, {int(183+colb*72)}, 1) 9.75%, rgba({int(134+colr*121)}, {int(134+colg*121)}, {int(134+colb*121)}, 1) 17.63%, rgba({int(93+colr*162)}, {int(93+colg*162)}, {int(93+colb*162)}, 1) 25.6%, rgba({int(59+colr*196)}, {int(59+colg*196)}, {int(59+colb*196)}, 1) 33.68%, rgba({int(33+colr*222)}, {int(33+colg*222)}, {int(33+colb*222)}, 1) 41.9%, rgba({int(15+colr*240)}, {int(15+colg*240)}, {int(15+colb*240)}, 1) 50.33%, rgba({int(4+colr*251)}, {int(4+colg*251)}, {int(4+colb*251)}, 1) 59.09%, rgba({int(colr*255)}, {int(colg*255)}, {int(colb*255)}, 1) 68.72%)")
+    show("banner")
+
+def update_banner(next_ZH, next_EN, terminal=False):
+    if terminal:
+        change_content("BANNER_text-Terminal-ZH", next_ZH)
+        change_content("BANNER_text-Terminal-EN", next_EN)
+    else:
+        change_content("BANNER_text-Terminal-ZH", "下一站 " + next_ZH)
+        change_content("BANNER_text-Terminal-EN", "Next Station: " + next_EN)
 
 def display_A1(plan, sleep_time=0, target_time="999999"):
     station_info = get_station_info(plan["id"])
-    change_content("A1_text-ZH", station_info["name-ZH"])
-    change_content("A1_text-EN", station_info["name-EN"])
+    # change_content("A1_text-ZH", station_info["name-ZH"])
+    # change_content("A1_text-EN", station_info["name-EN"])
     reset("A1")
     if sleep_time != 0:
         sleep(min(sleep_time, get_interval(get_time(), target_time)))
@@ -337,17 +398,19 @@ def display_A2(past_stations, future_stations, target_time):
     display("A2-EN", ["A2-line"], 10, target_time, clear_transfer_svg=False)
 
 def display_B1(station, show_time, target_time):
-    change_content("B1_cur-ZH", station["name-ZH"] + " 到了")
-    change_content("B1_cur-EN", "Arriving at: " + station["name-EN"])
+    change_content("B1_cur-ZH", station["name-ZH"])
+    change_content("B1_cur-EN", station["name-EN"])
     
     transfer = [line for line in station["lines"] if line not in cur_lines]
     transform = get_B1svg_transform(len(transfer))
     if(len(transfer) == 0):
         js("document.getElementById('B1_cur-ZH').style.top = '180px';")
         js("document.getElementById('B1_cur-EN').style.top = '350px';")
+        js("document.getElementById('B1-transfershadow').style.display = 'none';")
     else:
-        js("document.getElementById('B1_cur-ZH').style.top = '150px';")
-        js("document.getElementById('B1_cur-EN').style.top = '320px';")
+        js("document.getElementById('B1_cur-ZH').style.top = '140px';")
+        js("document.getElementById('B1_cur-EN').style.top = '300px';")
+        js("document.getElementById('B1-transfershadow').style.display = 'block';")
     reset("B1")
     for line_idx, line in enumerate(transfer):
         addtransferAsvg(f"SVG/{line}-1.svg", f"B1-transferA-{line_idx}", module_name="B1",
@@ -371,10 +434,12 @@ def prepare_B2(station_id, cur_dir, cur_time):
             continue
         
         train_t2, flag_t2 = "", False
-        for plan in train["train"]:
+        for plan_idx, plan in enumerate(train["train"]):
             if plan["dir"] != cur_dir:
                 continue
-            for station in plan["plan"]:
+            for station_idx, station in enumerate(plan["plan"]):
+                if plan_idx == len(train["train"]) - 1 and station_idx == len(plan["plan"]) - 1:
+                    continue
                 if station["station"] == station_id and station["t2"] >= cur_time:
                     train_t2 = station["t2"]
                     flag_t2 = True
@@ -388,7 +453,8 @@ def prepare_B2(station_id, cur_dir, cur_time):
             "terminal": train["train"][-1]["plan"][-1]["station"],
             "t2": train_t2,
             "color": train["color"],
-            "subcolor": train["subcolor"]
+            "subcolor": train["subcolor"],
+            "platform": station["platform"]
         }
     
     candicate_list = sorted(candidate_dict.items(), key=lambda x: x[1]["t2"])
@@ -398,12 +464,6 @@ def prepare_B2(station_id, cur_dir, cur_time):
     return candicate_list
 
 def display_B2(B2_list, target_time):
-    def get_bg(col):
-        colr = int(col[1:3], 16) / 255
-        colg = int(col[3:5], 16) / 255
-        colb = int(col[5:7], 16) / 255
-        return f"linear-gradient(180deg, rgba({255}, {255}, {255}, 1) 0%, rgba({245+10*colr}, {245+10*colg}, {245+10*colb}, 1) 0.75%, rgba({195+60*colr}, {195+60*colg}, {195+60*colb}, 1) 5.13%, rgba({148+107*colr}, {148+107*colg}, {148+107*colb}, 1) 9.82%, rgba({108+147*colr}, {108+147*colg}, {108+147*colb}, 1) 14.72%, rgba({75+180*colr}, {75+180*colg}, {75+180*colb}, 1) 19.87%, rgba({47+208*colr}, {47+208*colg}, {47+208*colb}, 1) 25.35%, rgba({26+229*colr}, {26+229*colg}, {26+229*colb}, 1) 31.27%, rgba({11+244*colr}, {11+244*colg}, {11+244*colb}, 1) 37.85%, rgba({3+252*colr}, {3+252*colg}, {3+252*colb}, 1) 45.61%, rgba({255*colr}, {255*colg}, {255*colb}, 1) 57.54%)"
-    
     l = len(B2_list)
     cur_time = get_time()
     for idx, trans in enumerate(B2_list):
@@ -412,35 +472,76 @@ def display_B2(B2_list, target_time):
         change_content(f"B2-{l}_type{i}-ZH", train_name_ZH)
         change_content(f"B2-{l}_type{i}-EN", train_name_EN)
         terminal_station = station_data_by_id[trans[1]["terminal"]]
-        change_content(f"B2-{l}_text-terminal{i}-ZH", "往 " + terminal_station["name-ZH"])
-        change_content(f"B2-{l}_text-terminal{i}-EN", "To " + terminal_station["name-EN"])
+        change_content(f"B2-{l}_text-terminal{i}-ZH", terminal_station["name-ZH"])
+        change_content(f"B2-{l}_text-terminal{i}-EN", terminal_station["name-EN"])
         change_content(f"B2-{l}_text-t{i}", get_interval(cur_time, trans[1]["t2"]) // 60)
-        change_bgimg(f".B2-{l}_frame-t{i}", get_bg(trans[1]["subcolor"]))
+        change_content(f"B2-{l}_text-p{i}", trans[1]["platform"])
         change_bg(f"B2-{l}_type{i}-ZH-frame", trans[1]["color"])
         change_bg(f"B2-{l}_type{i}-EN-frame", trans[1]["color"])
     
-    display(f"B2-{l}", [], 3 + 3 * l, target_time)
+    reset(f"B2-{l}", [], True)
+    if l == 1:
+        addinnershadowsvg(svg_name="B2-inner-shadow", svg_id="B2-1_inner-shadow-1",
+                     top=301, left=14,
+                     width=136, height=69.5,
+                     module_name="B2-1", is_const=False)
+    elif l == 2:
+        addinnershadowsvg(svg_name="B2-inner-shadow", svg_id="B2-2_inner-shadow-1",
+                     top=260, left=14,
+                     width=136, height=69.5,
+                     module_name="B2-2", is_const=False)
+        addinnershadowsvg(svg_name="B2-inner-shadow", svg_id="B2-2_inner-shadow-2",
+                     top=351, left=14,
+                     width=136, height=69.5,
+                     module_name="B2-2", is_const=False)
+    elif l == 3:
+        addinnershadowsvg(svg_name="B2-inner-shadow", svg_id="B2-3_inner-shadow-1",
+                     top=210, left=14,
+                     width=136, height=69.5,
+                     module_name="B2-3", is_const=False)
+        addinnershadowsvg(svg_name="B2-inner-shadow", svg_id="B2-3_inner-shadow-2",
+                     top=301, left=14,
+                     width=136, height=69.5,
+                     module_name="B2-3", is_const=False)
+        addinnershadowsvg(svg_name="B2-inner-shadow", svg_id="B2-3_inner-shadow-3",
+                     top=392, left=14,
+                     width=136, height=69.5,
+                     module_name="B2-3", is_const=False)
+    sleep(min(4 + 3 * l, get_interval(get_time(), target_time)))
    
 def main_loop(mm):
+    threading.Thread(target=time_thread, daemon=True).start()
+    
     total_station_num = len(cur_train)
     
     # banner
     display_banner()
+    change_content("A1_text-ZH", station_data_by_id[cur_train[-1]["id"]]["name-ZH"])
+    change_content("A1_text-EN", station_data_by_id[cur_train[-1]["id"]]["name-EN"])
     
     while True:
         station_idx, status = get_status(get_time())
+        station = station_data_by_id[cur_train[station_idx]["id"]]
         if status == "A":
+            update_banner(station["name-ZH"], station["name-EN"])
             target_time = cur_train[station_idx]["t1"]
             while get_time() < target_time:
                 # A1
                 display_A1(cur_train[station_idx], 0, target_time)
+                # map-svg
                 addfullscreensvg("SVG/A1-map.svg", "A1-map-svg")
                 svg_name = get_svg_name(cur_train_pre["id"])
+                # dot-svg
+                adddotsvg(station["mappos"])
+                
                 sleep(0.5)
+                addfullscreensvg(f"SVG/{svg_name}.svg", f"{svg_name}-svg")
                 for _ in range(10):
-                    addfullscreensvg(f"SVG/{svg_name}.svg", f"{svg_name}-svg")
+                    # addfullscreensvg(f"SVG/{svg_name}.svg", f"{svg_name}-svg")
+                    showbyid(f"{svg_name}-svg")
                     sleep(0.5)
-                    delbyid(f"{svg_name}-svg")
+                    # delbyid(f"{svg_name}-svg")
+                    hidebyid(f"{svg_name}-svg")
                     sleep(0.5)
                     if get_time() >= target_time:
                         break
@@ -452,16 +553,20 @@ def main_loop(mm):
                 display_A2(past_stations, future_stations, target_time)
             
         elif status == "B":
+            if len(cur_train) == station_idx + 1:
+                update_banner("终点站", "Terminal Station", terminal=1)
+            else:
+                update_banner(station_data_by_id[cur_train[station_idx + 1]["id"]]["name-ZH"], station_data_by_id[cur_train[station_idx + 1]["id"]]["name-EN"])
             target_time = cur_train[station_idx]["t2"]
             
             while get_time() < target_time:
                 B2_list = prepare_B2(cur_train[station_idx]["id"], cur_train[station_idx]["dir"], cur_train[station_idx]["t1"])
                 if len(B2_list) == 0:
                     # B1
-                    display_B1(station_data_by_id[cur_train[station_idx]["id"]], 999999, target_time)
+                    display_B1(station, 999999, target_time)
                 else:
                     # B1
-                    display_B1(station_data_by_id[cur_train[station_idx]["id"]], 10, target_time)
+                    display_B1(station, 6, target_time)
                     # B2
                     display_B2(B2_list, target_time)
         else:

@@ -14,7 +14,6 @@ body {
     visibility: hidden;
 }
 
-/* Banner styles */
 .BANNER_banner {
     position: absolute;
     left: 0px;
@@ -26,25 +25,37 @@ body {
 
 .BANNER_frame {
     position: absolute;
-    border-radius: 8px;
     background: #000000;
 }
 .BANNER_frame-type-zh {
+    border-radius: 7px;
     position: absolute;
     left: 20px;
-    top: 20px;
-    width: 234px;
+    top: 24px;
+    width: 250px;
     height: 70px;
     box-sizing: border-box;
     padding-left: 2px;
     padding-right: 2px;
 }
 .BANNER_frame-type-en {
+    border-radius: 5px;
     position: absolute;
     left: 20px;
-    top: 96px;
-    width: 234px;
-    height: 36px;
+    top: 100px;
+    width: 182px;
+    height: 30px;
+    box-sizing: border-box;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+.BANNER_frame-ti {
+    border-radius: 5px;
+    position: absolute;
+    left: 206px;
+    top: 100px;
+    width: 64px;
+    height: 30px;
     box-sizing: border-box;
     padding-left: 2px;
     padding-right: 2px;
@@ -56,17 +67,26 @@ body {
     font-weight: bold;
     font-size: 50px;
     color: #FFFFFF;
-    white-space: nowrap; /* Prevent text from wrapping */
-    transform-origin: left center; /* Ensures the text scales from the left */
+    white-space: nowrap;
+    transform-origin: left center;
 }
 .BANNER_text-type-en {
     text-align: center;
     font-family : 微软雅黑;
     font-weight : bold;
-    font-size : 25px;
+    font-size : 22px;
     color : #FFFFFF;
-    white-space: nowrap; /* Prevent text from wrapping */
-    transform-origin: left center; /* Ensures the text scales from the left */
+    white-space: nowrap;
+    transform-origin: left center; 
+}
+.BANNER_text-ti {
+    text-align: center;
+    font-family : 微软雅黑;
+    font-weight : bold;
+    font-size : 22px;
+    color : #FFFFFF;
+    white-space: nowrap;
+    transform-origin: left center; 
 }
 
 .BANNER_text {
@@ -76,10 +96,10 @@ body {
     color : #FFFFFF;
     color : rgb(255, 255, 255);
     text-shadow: 
-        2px 2px 0 #000000,  /* 右下描边 */
-        -2px 2px 0 #000000, /* 左下描边 */
-        2px -2px 0 #000000, /* 右上描边 */
-        -2px -2px 0 #000000; /* 左上描边 */
+        1.5px 1.5px 0 #000000,
+        -1.5px 1.5px 0 #000000,
+        1.5px -1.5px 0 #000000,
+        -1.5px -1.5px 0 #000000;
 }
 .BANNER_text-Wang {
     left: 270px;
@@ -88,15 +108,15 @@ body {
 }
 .BANNER_text-Terminal-ZH {
     text-align: center;
-    left: 573px;
-    top: 65px;
+    left: 536px;
+    top: 60px;
     font-size : 70px;
     transform: translate(0%, -50%);
 }
 .BANNER_text-Terminal-EN {
     text-align: center;
-    left: 573px;
-    top: 120px;
+    left: 536px;
+    top: 115px;
     font-size : 25px;
     transform: translate(0%, -50%);
 }
@@ -148,8 +168,8 @@ body {
     font-weight: bold;
     font-size: 40px;
     color: #000000;
-    white-space: nowrap; /* Prevent text from wrapping */
-    transform-origin: left center; /* Ensures the text scales from the left */
+    white-space: nowrap;
+    transform-origin: left center;
 
     box-sizing: border-box;
     padding-left: 2px;
@@ -260,75 +280,75 @@ body {
 
 .B2-3_frame {
     position: absolute;
-    border-radius: 8px;
+    border-radius: 4.5px;
 }
 .B2-3_frame-type-zh {
     position: absolute;
-    top: 176px;
-    width: 234px;
-    height: 70px;
+    left: 14px;
+    width: 136px;
+    height: 42.5px;
 }
 .B2-3_frame-type-en {
     position: absolute;
-    top: 252px;
-    width: 234px;
-    height: 36px;
+    left: 14px;
+    width: 136px;
+    height: 21.9px;
 }
 
 .B2-3_frame-type-zh-1 {
     background: #000000;
-    left: 29px;
+    top: 210px;
 }
 .B2-3_frame-type-en-1 {
     background: #000000;
-    left: 29px;
+    top: 257px;
 }
 .B2-3_frame-type-zh-2 {
     background: #000000;
-    left: 283px;
+    top: 301px;
 }
 .B2-3_frame-type-en-2 {
     background: #000000;
-    left: 283px;
+    top: 348px;
 }
 .B2-3_frame-type-zh-3 {
     background: #000000;
-    left: 537px;
+    top: 392px;
 }
 .B2-3_frame-type-en-3 {
     background: #000000;
-    left: 537px;
+    top: 439px;
 }
 
 .B2-3_text-type-zh {
     text-align: center;
     font-family: 微软雅黑;
     font-weight: bold;
-    font-size: 50px;
+    font-size: 30px;
     color: #FFFFFF;
-    white-space: nowrap; /* Prevent text from wrapping */
-    transform-origin: left center; /* Ensures the text scales from the left */
+    white-space: nowrap;
+    transform-origin: left center;
 }
 .B2-3_text-type-en {
     text-align: center;
     font-family : 微软雅黑;
     font-weight : bold;
-    font-size : 25px;
+    font-size : 15px;
     color : #FFFFFF;
-    white-space: nowrap; /* Prevent text from wrapping */
-    transform-origin: left center; /* Ensures the text scales from the left */
+    white-space: nowrap;
+    transform-origin: left center;
 }
 
 .B2-3_text-terminal-ZH {
     position: absolute;
-    top: 303px;
+    left: 302px;
     font-family : 方正黑体_GBK;
     font-size : 45px;
     color : #000000;
 }
 .B2-3_text-terminal-EN {
     position: absolute;
-    top: 353px;
+    left: 302px;
     font-family : 方正黑体_GBK;
     font-size : 20px;
     color : #000000;
@@ -336,131 +356,135 @@ body {
 
 .B2-3_text_t1 {
     position: absolute;
-    top: 383px;
-    left: 146px;
+    top: 196px;
+    left: 522px;
 
     text-align: center;
     font-family : Bahnschrift;
-    font-weight : bold;
-    font-size : 80px;
-    color : #FFFFFF;
+    letter-spacing: -5px;
+    font-size : 90px;
+    color : #000000;
 }
 .B2-3_text_t2 {
     position: absolute;
-    top: 383px;
-    left: 400px;
+    top: 287px;
+    left: 522px;
 
     text-align: center;
     font-family : Bahnschrift;
-    font-weight : bold;
-    font-size : 80px;
-    color : #FFFFFF;
+    letter-spacing: -5px;
+    font-size : 90px;
+    color : #000000;
 }
 .B2-3_text_t3 {
     position: absolute;
-    top: 383px;
-    left: 654px;
+    top: 378px;
+    left: 522px;
 
     text-align: center;
     font-family : Bahnschrift;
-    font-weight : bold;
-    font-size : 80px;
-    color : #FFFFFF;
+    letter-spacing: -5px;
+    font-size : 90px;
+    color : #000000;
 }
-.B2-3_frame-t1 {
+
+.B2-3_text_p1 {
     position: absolute;
-    transform: translateX(-50%);
-    top: 383px;
-    left: 146px;
-    width : 132px;
-    height : 82px;
-    border-radius : 20px;
-    background : linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(245, 245, 245, 1) 0.75%, rgba(195, 195, 195, 1) 5.13%, rgba(148, 148, 148, 1) 9.82%, rgba(108, 108, 108, 1) 14.72%, rgba(75, 75, 75, 1) 19.87%, rgba(47, 47, 47, 1) 25.35%, rgba(26, 26, 26, 1) 31.27%, rgba(11, 11, 11, 1) 37.85%, rgba(3, 3, 3, 1) 45.61%, rgba(0, 0, 0, 1) 57.54%);
+    top: 196px;
+    left: 664px;
+
+    text-align: center;
+    font-family : Bahnschrift;
+    letter-spacing: -5px;
+    font-size : 90px;
+    color : #000000;
 }
-.B2-3_frame-t2 {
+.B2-3_text_p2 {
     position: absolute;
-    transform: translateX(-50%);
-    top: 383px;
-    left: 400px;
-    width : 132px;
-    height : 82px;
-    border-radius : 20px;
-    background : linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(245, 245, 245, 1) 0.75%, rgba(195, 195, 195, 1) 5.13%, rgba(148, 148, 148, 1) 9.82%, rgba(108, 108, 108, 1) 14.72%, rgba(75, 75, 75, 1) 19.87%, rgba(47, 47, 47, 1) 25.35%, rgba(26, 26, 26, 1) 31.27%, rgba(11, 11, 11, 1) 37.85%, rgba(3, 3, 3, 1) 45.61%, rgba(0, 0, 0, 1) 57.54%);
+    top: 287px;
+    left: 664px;
+
+    text-align: center;
+    font-family : Bahnschrift;
+    letter-spacing: -5px;
+    font-size : 90px;
+    color : #000000;
 }
-.B2-3_frame-t3 {
+.B2-3_text_p3 {
     position: absolute;
-    transform: translateX(-50%);
-    top: 383px;
-    left: 654px;
-    width : 132px;
-    height : 82px;
-    border-radius : 20px;
-    background : linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(245, 245, 245, 1) 0.75%, rgba(195, 195, 195, 1) 5.13%, rgba(148, 148, 148, 1) 9.82%, rgba(108, 108, 108, 1) 14.72%, rgba(75, 75, 75, 1) 19.87%, rgba(47, 47, 47, 1) 25.35%, rgba(26, 26, 26, 1) 31.27%, rgba(11, 11, 11, 1) 37.85%, rgba(3, 3, 3, 1) 45.61%, rgba(0, 0, 0, 1) 57.54%);
+    top: 378px;
+    left: 664px;
+
+    text-align: center;
+    font-family : Bahnschrift;
+    letter-spacing: -5px;
+    font-size : 90px;
+    color : #000000;
 }
 
 .B2-2_frame {
     position: absolute;
-    border-radius: 8px;
+    border-radius: 4.5px;
 }
 .B2-2_frame-type-zh {
     position: absolute;
-    top: 176px;
-    width: 234px;
-    height: 70px;
+    left: 14px;
+    width: 136px;
+    height: 42.5px;
 }
 .B2-2_frame-type-en {
     position: absolute;
-    top: 252px;
-    width: 234px;
-    height: 36px;
+    left: 14px;
+    width: 136px;
+    height: 21.9px;
 }
 
 .B2-2_frame-type-zh-1 {
     background: #000000;
-    left: 109px;
+    top: 260px;
 }
 .B2-2_frame-type-en-1 {
     background: #000000;
-    left: 109px;
+    top: 307px;
 }
 .B2-2_frame-type-zh-2 {
     background: #000000;
-    left: 457px;
+    top: 351px;
 }
 .B2-2_frame-type-en-2 {
     background: #000000;
-    left: 457px;
+    top: 398px;
 }
 
 .B2-2_text-type-zh {
     text-align: center;
     font-family: 微软雅黑;
     font-weight: bold;
-    font-size: 50px;
+    font-size: 30px;
     color: #FFFFFF;
-    white-space: nowrap; /* Prevent text from wrapping */
-    transform-origin: left center; /* Ensures the text scales from the left */
+    white-space: nowrap;
+    transform-origin: left center;
 }
 .B2-2_text-type-en {
     text-align: center;
     font-family : 微软雅黑;
     font-weight : bold;
-    font-size : 25px;
+    font-size : 15px;
     color : #FFFFFF;
-    white-space: nowrap; /* Prevent text from wrapping */
-    transform-origin: left center; /* Ensures the text scales from the left */
+    white-space: nowrap; 
+    transform-origin: left center; 
 }
 
 .B2-2_text-terminal-ZH {
     position: absolute;
-    top: 303px;
+    left: 302px;
     font-family : 方正黑体_GBK;
     font-size : 45px;
     color : #000000;
 }
 .B2-2_text-terminal-EN {
     position: absolute;
-    top: 353px;
+    left: 302px;
     font-family : 方正黑体_GBK;
     font-size : 20px;
     color : #000000;
@@ -468,102 +492,105 @@ body {
 
 .B2-2_text_t1 {
     position: absolute;
-    top: 383px;
-    left: 226px;
+    top: 246px;
+    left: 522px;
 
     text-align: center;
     font-family : Bahnschrift;
-    font-weight : bold;
-    font-size : 80px;
-    color : #FFFFFF;
+    letter-spacing: -5px;
+    font-size : 90px;
+    color : #000000;
 }
 .B2-2_text_t2 {
     position: absolute;
-    top: 383px;
-    left: 574px;
+    top: 337px;
+    left: 522px;
 
     text-align: center;
     font-family : Bahnschrift;
-    font-weight : bold;
-    font-size : 80px;
-    color : #FFFFFF;
+    letter-spacing: -5px;
+    font-size : 90px;
+    color : #000000;
 }
-.B2-2_frame-t1 {
+
+.B2-2_text_p1 {
     position: absolute;
-    transform: translateX(-50%);
-    top: 383px;
-    left: 226px;
-    width : 132px;
-    height : 82px;
-    border-radius : 20px;
-    background : linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(245, 245, 245, 1) 0.75%, rgba(195, 195, 195, 1) 5.13%, rgba(148, 148, 148, 1) 9.82%, rgba(108, 108, 108, 1) 14.72%, rgba(75, 75, 75, 1) 19.87%, rgba(47, 47, 47, 1) 25.35%, rgba(26, 26, 26, 1) 31.27%, rgba(11, 11, 11, 1) 37.85%, rgba(3, 3, 3, 1) 45.61%, rgba(0, 0, 0, 1) 57.54%);
+    top: 246px;
+    left: 664px;
+
+    text-align: center;
+    font-family : Bahnschrift;
+    letter-spacing: -5px;
+    font-size : 90px;
+    color : #000000;
 }
-.B2-2_frame-t2 {
+.B2-2_text_p2 {
     position: absolute;
-    transform: translateX(-50%);
-    top: 383px;
-    left: 574px;
-    width : 132px;
-    height : 82px;
-    border-radius : 20px;
-    background : linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(245, 245, 245, 1) 0.75%, rgba(195, 195, 195, 1) 5.13%, rgba(148, 148, 148, 1) 9.82%, rgba(108, 108, 108, 1) 14.72%, rgba(75, 75, 75, 1) 19.87%, rgba(47, 47, 47, 1) 25.35%, rgba(26, 26, 26, 1) 31.27%, rgba(11, 11, 11, 1) 37.85%, rgba(3, 3, 3, 1) 45.61%, rgba(0, 0, 0, 1) 57.54%);
+    top: 337px;
+    left: 664px;
+
+    text-align: center;
+    font-family : Bahnschrift;
+    letter-spacing: -5px;
+    font-size : 90px;
+    color : #000000;
 }
 
 .B2-1_frame {
     position: absolute;
-    border-radius: 8px;
+    border-radius: 4.5px;
 }
 .B2-1_frame-type-zh {
     position: absolute;
-    top: 176px;
-    width: 234px;
-    height: 70px;
+    left: 14px;
+    width: 136px;
+    height: 42.5px;
 }
 .B2-1_frame-type-en {
     position: absolute;
-    top: 252px;
-    width: 234px;
-    height: 36px;
+    left: 14px;
+    width: 136px;
+    height: 21.9px;
 }
 
 .B2-1_frame-type-zh-1 {
     background: #000000;
-    left: 283px;
+    top: 301px;
 }
 .B2-1_frame-type-en-1 {
     background: #000000;
-    left: 283px;
+    top: 348px;
 }
 
 .B2-1_text-type-zh {
     text-align: center;
     font-family: 微软雅黑;
     font-weight: bold;
-    font-size: 50px;
+    font-size: 30px;
     color: #FFFFFF;
-    white-space: nowrap; /* Prevent text from wrapping */
-    transform-origin: left center; /* Ensures the text scales from the left */
+    white-space: nowrap; 
+    transform-origin: left center; 
 }
 .B2-1_text-type-en {
     text-align: center;
     font-family : 微软雅黑;
     font-weight : bold;
-    font-size : 25px;
+    font-size : 15px;
     color : #FFFFFF;
-    white-space: nowrap; /* Prevent text from wrapping */
-    transform-origin: left center; /* Ensures the text scales from the left */
+    white-space: nowrap; 
+    transform-origin: left center; 
 }
 
 .B2-1_text-terminal-ZH {
     position: absolute;
-    top: 303px;
+    left: 302px;
     font-family : 方正黑体_GBK;
     font-size : 45px;
     color : #000000;
 }
 .B2-1_text-terminal-EN {
     position: absolute;
-    top: 353px;
+    left: 302px;
     font-family : 方正黑体_GBK;
     font-size : 20px;
     color : #000000;
@@ -571,24 +598,26 @@ body {
 
 .B2-1_text_t1 {
     position: absolute;
-    top: 383px;
-    left: 400px;
+    top: 287px;
+    left: 522px;
 
     text-align: center;
     font-family : Bahnschrift;
-    font-weight : bold;
-    font-size : 80px;
-    color : #FFFFFF;
+    letter-spacing: -5px;
+    font-size : 90px;
+    color : #000000;
 }
-.B2-1_frame-t1 {
+
+.B2-1_text_p1 {
     position: absolute;
-    transform: translateX(-50%);
-    top: 383px;
-    left: 400px;
-    width : 132px;
-    height : 82px;
-    border-radius : 20px;
-    background : linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(245, 245, 245, 1) 0.75%, rgba(195, 195, 195, 1) 5.13%, rgba(148, 148, 148, 1) 9.82%, rgba(108, 108, 108, 1) 14.72%, rgba(75, 75, 75, 1) 19.87%, rgba(47, 47, 47, 1) 25.35%, rgba(26, 26, 26, 1) 31.27%, rgba(11, 11, 11, 1) 37.85%, rgba(3, 3, 3, 1) 45.61%, rgba(0, 0, 0, 1) 57.54%);
+    top: 287px;
+    left: 664px;
+
+    text-align: center;
+    font-family : Bahnschrift;
+    letter-spacing: -5px;
+    font-size : 90px;
+    color : #000000;
 }
 
 .fullscreen-svg {
@@ -608,5 +637,26 @@ body {
 .transferB-svg {
     width: 55px;
     height: 41px;
+    position: absolute;
+}
+
+.shadow-svg {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 800px;
+    height: 480px;
+}
+
+.dot-svg {
+    width: 54px;
+    height: 54px;
+    position: absolute;
+}
+
+.inner-shadow-svg {
+    position: absolute;
+}
+.inner-shadow-svg-const {
     position: absolute;
 }
