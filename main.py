@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import webview, os
+import webview, os, random
 import json, threading, math
 from time import sleep
 from pynput import keyboard
@@ -10,8 +10,8 @@ line_json_file = "data/line.json"
 train_json_file = "data/train.json"
 
 def get_time():
-    return "065800"
-    return "072" + datetime.now().strftime("%H%M%S")[3:]
+    # return "211300"
+    # return "07" + datetime.now().strftime("%H%M%S")[2:]
     return datetime.now().strftime("%H%M%S")
 
 def get_interval(t1, t2):
@@ -173,6 +173,12 @@ def get_train_name(train_id):
             return "6号线", "Line 6 Local"
         elif identifier == "S6":
             return "S6号线", "Line S6 Local"
+        elif identifier == "R4":
+            return "R4号线", "Line R4 Local"
+        elif identifier == "R9":
+            return "R9号线", "Line R9 Local"
+        elif identifier == "04":
+            return "4号线", "Line 4 Local"
     elif header == "R":
         if identifier == "XF":
             return "新发快速", "XINFA Rapid"
@@ -191,6 +197,13 @@ def get_svg_name(train_id):
         return "A1-LOCAL6"
     elif train_id[0:3] == "LS6":
         return "A1-LOCALS6"
+    elif train_id[0:3] == "LR9":
+        return "A1-LOCALR9"
+    elif train_id[0:3] == "LR4":
+        if train_data_by_id[train_id]["train"][0]["plan"][0]["station"] == "00019" or train_data_by_id[train_id]["train"][-1]["plan"][-1]["station"] == "00019":
+                return "A1-LOCALR4"
+        else:
+            return "A1-LOCALR4short"
     elif train_id[0:3] == "RJC":
         return "A1-RAPID46"
     elif train_id[0:3] == "RXF":
@@ -457,11 +470,15 @@ def prepare_B2(station_id, cur_dir, cur_time):
             "platform": station["platform"]
         }
     
-    candicate_list = sorted(candidate_dict.items(), key=lambda x: x[1]["t2"])
-    if len(candicate_list) > 3:
-        candicate_list = candicate_list[:3]
+    candidate_list = sorted(candidate_dict.items(), key=lambda x: x[1]["t2"])
+    for candidate in candidate_list:
+        if get_interval(get_time(), candidate[1]["t2"]) > 20 * 60:
+            candidate_list.remove(candidate)
     
-    return candicate_list
+    if len(candidate_list) > 3:
+        candidate_list = candidate_list[:3]
+    
+    return candidate_list
 
 def display_B2(B2_list, target_time):
     l = len(B2_list)
@@ -567,6 +584,7 @@ def main_loop(mm):
                 else:
                     # B1
                     display_B1(station, 6, target_time)
+                    B2_list = prepare_B2(cur_train[station_idx]["id"], cur_train[station_idx]["dir"], cur_train[station_idx]["t1"])
                     # B2
                     display_B2(B2_list, target_time)
         else:
@@ -574,9 +592,10 @@ def main_loop(mm):
             os._exit(0)
 
 def main():
+    # prepare
     global window
     global line_data, train_data, cur_train_pre, cur_train
-    global station_data_by_id, line_data_by_id
+    global station_data_by_id, line_data_by_id, train_data_by_id
     global cur_lines
     
     with open(line_json_file, "r") as f:
@@ -592,18 +611,31 @@ def main():
     for line in line_data["line"]:
         line_data_by_id[line["id"]] = line
     
-    train_id = input("Input train id: ")
+    train_data_by_id = {}
+    for train in train_data:
+        train_data_by_id[train["id"]] = train
+    
+    # input and choose
+    train_id = input("Input train id prefix: ")
+    
     cur_train_list = []
     for train in train_data:
-        if train["id"] == train_id:
-            cur_train_list.append(train)
+        if train["id"].startswith(train_id):
+            cur_time = get_time()
+            if train["train"][0]["plan"][0]["t1"] <= cur_time and train["train"][-1]["plan"][-1]["t2"] >= cur_time:
+                cur_train_list.append(train)
+    
     if len(cur_train_list) == 0:
-        print(f"Train with ID {train_id} not found.")
+        print(f"Train with ID {train_id} as prefix not found or not in service.")
         exit(0)
-    elif len(cur_train_list) > 1:
-        print(f"Multiple train with ID {train_id} is found. Please check file.")
-        exit(0)
-    cur_train_pre = cur_train_list[0]
+    # elif len(cur_train_list) > 1:
+    #     print(f"Multiple train with ID {train_id} is found. Please check file.")
+    #     exit(0)
+    cur_train_pre = random.choice(cur_train_list)
+    
+    print(cur_train_pre["id"])
+    
+    # construct
     cur_train = []
     for train in cur_train_pre["train"]:
         for plan in train["plan"]:
@@ -619,6 +651,7 @@ def main():
     for train in cur_train_pre["train"]:
         cur_lines.append(train["line"])
     
+    # pywebview
     html_path = "index.html"
     window = webview.create_window("LCD", html_path, width=800, height=480)
     webview.start(main_loop, window)
