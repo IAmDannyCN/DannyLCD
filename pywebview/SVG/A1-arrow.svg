@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 77 77">
+  <defs>
+    <style>
+      .cls-1-A1-arrow {
+        fill: #fff;
+        filter: url(#outer-glow-1);
+        stroke: red;
+        stroke-linecap: round;
+        stroke-miterlimit: 10;
+        stroke-width: 4px;
+      }
+
+      .cls-2-A1-arrow {
+        fill: red;
+      }
+    </style>
+    <filter id="outer-glow-1" filterUnits="userSpaceOnUse">
+      <feOffset dx="0" dy="0"/>
+      <feGaussianBlur result="blur" stdDeviation="5"/>
+      <feFlood flood-color="#000" flood-opacity="1"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <circle class="cls-1-A1-arrow" cx="38.19" cy="38.62" r="21"/>
+  <polygon class="cls-2-A1-arrow" points="40.17 38.22 28.46 26.5 40.17 26.5 51.88 38.22 40.17 49.93 28.46 49.93 40.17 38.22"/>
+</svg>

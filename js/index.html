@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LCD</title>
+    <link rel="stylesheet" type="text/css" href="lcd.css">
+    <script src="./util.js"></script>
+    <!-- <script src="./socket.js"></script> -->
+    <script src="./core.js"></script>
+</head>
+<body>
+    
+    <div id="banner" class="module">
+        <div class="BANNER_banner BANNER_banner_bg" id="BANNER_banner"></div>
+
+        <div class="BANNER_frame BANNER_frame-type-zh" id="BANNER_frame-ZH">
+            <div class="BANNER_text-type-zh" id="BANNER_text-type-zh">高新快速</div>
+        </div>
+        <div class="BANNER_frame BANNER_frame-type-en" id="BANNER_frame-EN">
+            <div class="BANNER_text-type-en" id="BANNER_text-type-en">High-Tech Rapid</div>
+        </div>
+        <div class="BANNER_frame BANNER_frame-ti" id="BANNER_frame-ti">
+            <div class="BANNER_text-ti" id="BANNER_text-ti">20:26</div>
+        </div>
+
+        <!-- <div class="BANNER_text BANNER_text-Wang">往</div> -->
+        <div class="BANNER_text BANNER_text-Terminal-ZH" id="BANNER_text-Terminal-ZH">加载中</div>
+        <div class="BANNER_text BANNER_text-Terminal-EN" id="BANNER_text-Terminal-EN">Loading...</div>
+    </div>
+
+    <div id="A1" class="module">
+        <object type="image/svg+xml" data="A1-shadow.svg" class="shadow-svg" id="A1-shadow"></object>
+        <div class="A1_text-Xia" style="left: 242px" id="A1_text-Xia">终点站</div>
+        <div class="A1_text-ns" style="left: 242px" id="A1_text-ns">Terminal Station</div>
+
+        <div class="A1_text-Xia" style="left: 522px" id="A1_text-ZH">终点站的名字</div>
+        <div class="A1_text-ns" style="left: 522px" id="A1_text-EN">The Name of the Terminal Station</div>
+    </div>
+
+    <div id="A2-line" class="module">
+        <object type="image/svg+xml" data="A2-shadow.svg" class="shadow-svg" id="A2-shadow"></object>
+        <svg class="A2_line-svg" width="800" height="480" id="A2-line-svg">
+            <polygon points="0,354 716,354 753,391 716,428 0,428 0,354" fill="#000000" />
+        </svg>
+    
+        <div class="A2-LINE_frame_t0" style="top: 363px; left: 30px" id="A2-LINE_frame_0">
+            <div class="A2-LINE_text" id="A2-LINE_t0"></div>
+        </div>
+        <div class="A2-LINE_frame_t1" style="top: 363px; left: 130px" id="A2-LINE_frame_1">
+            <div class="A2-LINE_text" id="A2-LINE_t1">5</div>
+        </div>
+        <div class="A2-LINE_frame_t1" style="top: 363px; left: 230px" id="A2-LINE_frame_2">
+            <div class="A2-LINE_text" id="A2-LINE_t2">?</div>
+        </div>
+        <div class="A2-LINE_frame_t1" style="top: 363px; left: 330px" id="A2-LINE_frame_3">
+            <div class="A2-LINE_text" id="A2-LINE_t3">--</div>
+        </div>
+        <div class="A2-LINE_frame_t1" style="top: 363px; left: 430px" id="A2-LINE_frame_4">
+            <div class="A2-LINE_text" id="A2-LINE_t4">620</div>
+        </div>
+        <div class="A2-LINE_frame_t1" style="top: 363px; left: 530px" id="A2-LINE_frame_5">
+            <div class="A2-LINE_text" id="A2-LINE_t5">1440</div>
+        </div>
+        <div class="A2-LINE_frame_t1" style="top: 363px; left: 630px" id="A2-LINE_frame_6">
+            <div class="A2-LINE_text" id="A2-LINE_t6">Time</div>
+        </div>
+    
+        <div class="A2-LINE_seg0" style="top: 411px; left: 0px;" id="A2-LINE_seg_0"></div>
+        <div class="A2-LINE_seg1" style="top: 411px; left: 63px;" id="A2-LINE_seg_1"></div>
+        <div class="A2-LINE_seg1" style="top: 411px; left: 163px;" id="A2-LINE_seg_2"></div>
+        <div class="A2-LINE_seg1" style="top: 411px; left: 263px;" id="A2-LINE_seg_3"></div>
+        <div class="A2-LINE_seg1" style="top: 411px; left: 363px;" id="A2-LINE_seg_4"></div>
+        <div class="A2-LINE_seg1" style="top: 411px; left: 463px;" id="A2-LINE_seg_5"></div>
+        <div class="A2-LINE_seg1" style="top: 411px; left: 563px;" id="A2-LINE_seg_6"></div>
+        <div class="A2-LINE_seg2" style="top: 411px; left: 663px;" id="A2-LINE_seg_7"></div>
+    </div>
+
+    <div id="A2-EN" class="module">
+        <div class="A2-EN_text_0" style="top: 165px; left: 40px" id="A2-EN_block_0">#0ENNNNNNNNNNNNNNNNN</div>
+        <div class="A2-EN_text_1" style="top: 165px; left: 140px" id="A2-EN_block_1">#1EN</div>
+        <div class="A2-EN_text_1" style="top: 165px; left: 240px" id="A2-EN_block_2">#2EN</div>
+        <div class="A2-EN_text_1" style="top: 165px; left: 340px" id="A2-EN_block_3">#3EN</div>
+        <div class="A2-EN_text_1" style="top: 165px; left: 440px" id="A2-EN_block_4">#4EN</div>
+        <div class="A2-EN_text_1" style="top: 165px; left: 540px" id="A2-EN_block_5">#5EN</div>
+        <div class="A2-EN_text_1" style="top: 165px; left: 640px" id="A2-EN_block_6">#6EN</div>
+    </div>
+
+    <div id="A2-ZH" class="module">
+        <div class="A2-ZH_text_0" style="top: 155px; left: 40px" id="A2-ZH_block_0">一个STATION</div>
+        <div class="A2-ZH_text_1" style="top: 155px; left: 140px" id="A2-ZH_block_1">这是另一个站</div>
+        <div class="A2-ZH_text_1" style="top: 155px; left: 240px" id="A2-ZH_block_2">本站</div>
+        <div class="A2-ZH_text_1" style="top: 155px; left: 340px" id="A2-ZH_block_3">站</div>
+        <div class="A2-ZH_text_1" style="top: 155px; left: 440px" id="A2-ZH_block_4">这是站吗</div>
+        <div class="A2-ZH_text_1" style="top: 155px; left: 540px" id="A2-ZH_block_5">这是站</div>
+        <div class="A2-ZH_text_1" style="top: 155px; left: 640px" id="A2-ZH_block_6">我也是个站</div>
+    </div>
+
+    <div id="B1" class="module">
+        <object type="image/svg+xml" data="B1-shadow.svg" class="shadow-svg" id="B1-shadow"></object>
+        <object type="image/svg+xml" data="B1-transfershadow.svg" class="shadow-svg" id="B1-transfershadow"></object>
+        <div class="B1_cur-ZH" style="top: 150px; left: 400px" id="B1_cur-ZH">在这里填写到达站点</div>
+        <div class="B1_cur-EN" style="top: 320px; left: 400px" id="B1_cur-EN">Put the Name of the Current Station at this Position</div>
+    </div>
+
+    <div id="B2-3" class="module">
+        <object type="image/svg+xml" data="B2-3-shadow.svg" class="shadow-svg" id="B2-3-shadow"></object>
+        <div class="B2-3_frame B2-3_frame-type-zh B2-3_frame-type-zh-1" id="B2-3_type1-ZH-frame">
+            <div class="B2-3_text-type-zh" id="B2-3_type1-ZH">S6各停停停停停停</div>
+        </div>
+        <div class="B2-3_frame B2-3_frame-type-en B2-3_frame-type-en-1" id="B2-3_type1-EN-frame">
+            <div class="B2-3_text-type-en" id="B2-3_type1-EN">S6 Local</div>
+        </div>
+        <div class="B2-3_text-terminal-ZH" id="B2-3_text-terminal1-ZH" style="top: 210px">南郊小小小小小镇</div>
+        <div class="B2-3_text-terminal-EN" id="B2-3_text-terminal1-EN" style="top: 258px">NANJIAO XIAOZHENENENENENENEN</div>
+        <div class="B2-3_text_t1" id="B2-3_text-t1">6</div>
+        <div class="B2-3_text_p1" id="B2-3_text-p1">--</div>
+
+        <div class="B2-3_frame B2-3_frame-type-zh B2-3_frame-type-zh-2" id="B2-3_type2-ZH-frame">
+            <div class="B2-3_text-type-zh" id="B2-3_type2-ZH">S6各停停停停停停</div>
+        </div>
+        <div class="B2-3_frame B2-3_frame-type-en B2-3_frame-type-en-2" id="B2-3_type2-EN-frame">
+            <div class="B2-3_text-type-en" id="B2-3_type2-EN">S6 Local</div>
+        </div>
+        <div class="B2-3_text-terminal-ZH" id="B2-3_text-terminal2-ZH" style="top: 301px">南郊小小小小小镇</div>
+        <div class="B2-3_text-terminal-EN" id="B2-3_text-terminal2-EN" style="top: 349px">NANJIAO XIAOZHENENENENENENEN</div>
+        <div class="B2-3_text_t2" id="B2-3_text-t2">26</div>
+        <div class="B2-3_text_p2" id="B2-3_text-p2">--</div>
+
+        <div class="B2-3_frame B2-3_frame-type-zh B2-3_frame-type-zh-3" id="B2-3_type3-ZH-frame">
+            <div class="B2-3_text-type-zh" id="B2-3_type3-ZH">S6各停停停停停停</div>
+        </div>
+        <div class="B2-3_frame B2-3_frame-type-en B2-3_frame-type-en-3" id="B2-3_type3-EN-frame">
+            <div class="B2-3_text-type-en" id="B2-3_type3-EN">S6 Local</div>
+        </div>
+        <div class="B2-3_text-terminal-ZH" id="B2-3_text-terminal3-ZH" style="top: 392px">南郊小小小小小镇</div>
+        <div class="B2-3_text-terminal-EN" id="B2-3_text-terminal3-EN" style="top: 440px">NANJIAO XIAOZHENENENENENENEN</div>
+        <div class="B2-3_text_t3" id="B2-3_text-t3">306</div>
+        <div class="B2-3_text_p3" id="B2-3_text-p3">--</div>
+    </div>
+
+    <div id="B2-2" class="module">
+        <object type="image/svg+xml" data="B2-2-shadow.svg" class="shadow-svg" id="B2-2-shadow"></object>
+        <div class="B2-2_frame B2-2_frame-type-zh B2-2_frame-type-zh-1" id="B2-2_type1-ZH-frame">
+            <div class="B2-2_text-type-zh" id="B2-2_type1-ZH">S6各停停停停停停</div>
+        </div>
+        <div class="B2-2_frame B2-2_frame-type-en B2-2_frame-type-en-1" id="B2-2_type1-EN-frame">
+            <div class="B2-2_text-type-en" id="B2-2_type1-EN">S6 Local</div>
+        </div>
+        <div class="B2-2_text-terminal-ZH" id="B2-2_text-terminal1-ZH" style="top: 260px">南郊小小小小小镇</div>
+        <div class="B2-2_text-terminal-EN" id="B2-2_text-terminal1-EN" style="top: 308px">NANJIAO XIAOZHENENENENENENEN</div>
+        <div class="B2-2_text_t1" id="B2-2_text-t1">6</div>
+        <div class="B2-2_text_p1" id="B2-2_text-p1">--</div>
+
+        <div class="B2-2_frame B2-2_frame-type-zh B2-2_frame-type-zh-2" id="B2-2_type2-ZH-frame">
+            <div class="B2-2_text-type-zh" id="B2-2_type2-ZH">S6各停停停停停停</div>
+        </div>
+        <div class="B2-2_frame B2-2_frame-type-en B2-2_frame-type-en-2" id="B2-2_type2-EN-frame">
+            <div class="B2-2_text-type-en" id="B2-2_type2-EN">S6 Local</div>
+        </div>
+        <div class="B2-2_text-terminal-ZH" id="B2-2_text-terminal2-ZH" style="top: 351px">南郊小小小小小镇</div>
+        <div class="B2-2_text-terminal-EN" id="B2-2_text-terminal2-EN" style="top: 399px">NANJIAO XIAOZHENENENENENENEN</div>
+        <div class="B2-2_text_t2" id="B2-2_text-t2">26</div>
+        <div class="B2-2_text_p2" id="B2-2_text-p2">--</div>
+    </div>
+
+    <div id="B2-1" class="module">
+        <object type="image/svg+xml" data="B2-1-shadow.svg" class="shadow-svg" id="B2-1-shadow"></object>
+        <div class="B2-1_frame B2-1_frame-type-zh B2-1_frame-type-zh-1" id="B2-1_type1-ZH-frame">
+            <div class="B2-1_text-type-zh" id="B2-1_type1-ZH">S6各停停停停停停</div>
+        </div>
+        <div class="B2-1_frame B2-1_frame-type-en B2-1_frame-type-en-1" id="B2-1_type1-EN-frame">
+            <div class="B2-1_text-type-en" id="B2-1_type1-EN">S6 Local</div>
+        </div>
+        <div class="B2-1_text-terminal-ZH" id="B2-1_text-terminal1-ZH" style="top: 301px">南郊小小小小小镇</div>
+        <div class="B2-1_text-terminal-EN" id="B2-1_text-terminal1-EN" style="top: 349px">NANJIAO XIAOZHENENENENENENEN</div>
+        <div class="B2-1_text_t1" id="B2-1_text-t1">26</div>
+        <div class="B2-1_text_p1" id="B2-1_text-p1">--</div>
+    </div>
+
+    <script>
+        setInterval(updateTime, 500);
+        reset_module([], false, false);
+        updateTextScale();
+        coreMain();
+    </script>
+
+</body>
+
+</html>

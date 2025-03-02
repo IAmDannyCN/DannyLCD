@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41.19 41.19">
+  <defs>
+    <style>
+      .cls-1-4-1 {
+        fill: #fff;
+      }
+
+      .cls-2-4-1 {
+        fill: #530ac6;
+      }
+    </style>
+  </defs>
+  <circle class="cls-2-4-1" cx="20.59" cy="20.59" r="20.59"/>
+  <path class="cls-1-4-1" d="m14.01,28.44v-3.47l7.58-16.46h4.21l-7.39,16.26h11.06v3.66h-15.47Zm9.83,3.63v-13.86h3.82v13.86h-3.82Z"/>
+</svg>

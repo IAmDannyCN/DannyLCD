@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41.19 41.19">
+  <defs>
+    <style>
+      .cls-1-14-1-14-1 {
+        fill: #fff;
+      }
+
+      .cls-2-14-1 {
+        fill: #515151;
+      }
+    </style>
+  </defs>
+  <circle class="cls-2-14-1" cx="20.59" cy="20.59" r="20.59"/>
+  <g>
+    <path class="cls-1-14-1-14-1" d="m14.83,8.51v23.55h-3.87V12.91l-3.11,1.57v-4.07l3.43-1.91h3.55Z"/>
+    <path class="cls-1-14-1-14-1" d="m19.53,28.44v-3.47l7.58-16.46h4.21l-7.39,16.26h11.06v3.66h-15.47Zm9.83,3.63v-13.86h3.82v13.86h-3.82Z"/>
+  </g>
+</svg>
