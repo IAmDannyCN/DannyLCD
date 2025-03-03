@@ -7,8 +7,7 @@ var stationDataById = {}, lineDataById = {}, trainDataById = {};
 var curLines;
 
 function getTime() {
-    // return "021300";
-    // return "083" + new Date().toISOString().slice(11, 19).replace(":", "");
+    // return "000000";
     const now = new Date();
     const hours = String(now.getHours()).padStart(2, '0');
     const minutes = String(now.getMinutes()).padStart(2, '0');
@@ -79,7 +78,7 @@ function addTransferBSvg(svgName, svgId, moduleName, top, left, scale = 1) {
 function addDotSvg(mapPos) {
     const addSvgCode = `
     const svgObject = document.createElement('object');
-    svgObject.setAttribute('data', 'A1-dot.svg');
+    svgObject.setAttribute('data', 'SVG/A1-dot.svg');
     svgObject.setAttribute('type', 'image/svg+xml');
     svgObject.classList.add('dot-svg');
     svgObject.setAttribute('id', 'dot-svg');
@@ -96,7 +95,7 @@ function addInnerShadowSvg(svgName, svgId, top, left, width, height, moduleName,
     const svgClass = isConst ? "inner-shadow-svg-const" : "inner-shadow-svg";
     const addInnerShadowSvgCode = `
     const svgObject = document.createElement('object');
-    svgObject.setAttribute('data', '${svgName}.svg');
+    svgObject.setAttribute('data', 'SVG/${svgName}.svg');
     svgObject.setAttribute('type', 'image/svg+xml');
     svgObject.classList.add('${svgClass}');
     svgObject.setAttribute('id', '${svgId}');
@@ -324,8 +323,8 @@ async function displayA2(pastStations, futureStations, targetTime) {
     let endColorFlag = false;
     changeBg("A2-LINE_seg_7", beginColor);
     
-    if (futureStations.length > 6) {
-        futureStations = futureStations.slice(0, 6);
+    if (futureStations.length > 7) {
+        futureStations = futureStations.slice(0, 7);
         endColorFlag = true;
     }
     if (pastStations.length > 7 - futureStations.length) {
@@ -407,7 +406,7 @@ async function displayA2(pastStations, futureStations, targetTime) {
             }
             let transform = getA2SvgATransform(transfer.length);
             transfer.forEach((line, lineIdx) => {
-                addTransferASvg(`${line}-1.svg`, `A2-transferA-${i}-${lineIdx}`, "A2-line",
+                addTransferASvg(`SVG/${line}-1.svg`, `A2-transferA-${i}-${lineIdx}`, "A2-line",
                                  transform[lineIdx]["top"], transform[lineIdx]["left"] + 100 * i, transform[lineIdx]["scale"]);
             });
         }
@@ -446,9 +445,9 @@ async function displayB1(station, showTime, targetTime) {
     reset("B1");
 
     transfer.forEach((line, lineIdx) => {
-        addTransferASvg(`${line}-1.svg`, `B1-transferA-${lineIdx}`, "B1", 
+        addTransferASvg(`SVG/${line}-1.svg`, `B1-transferA-${lineIdx}`, "B1", 
                         transform[lineIdx][0]["top"], transform[lineIdx][0]["left"], transform[lineIdx][0]["scale"]);
-        addTransferBSvg(`${line}-2.svg`, `B1-transferB-${lineIdx}`, "B1", 
+        addTransferBSvg(`SVG/${line}-2.svg`, `B1-transferB-${lineIdx}`, "B1", 
                         transform[lineIdx][1]["top"], transform[lineIdx][1]["left"], transform[lineIdx][1]["scale"]);
     });
 
@@ -458,7 +457,6 @@ async function displayB1(station, showTime, targetTime) {
 function prepareB2(stationId, curDir, curTime) {
     let candidateDict = {};
     let curType = curTrainPre["id"].slice(0, 3);
-    
     trainData.forEach((train) => {
         let trainType = train["id"].slice(0, 3);
         if (trainType === curType) {
@@ -502,7 +500,9 @@ function prepareB2(stationId, curDir, curTime) {
     });
     
     let candidateList = Object.entries(candidateDict).sort((a, b) => a[1]["t2"] - b[1]["t2"]);
-    candidateList = candidateList.filter(candidate => getInterval(getTime(), candidate[1]["t2"]) <= 20 * 60);
+    candidateList = candidateList
+                    .filter(candidate => getInterval(getTime(), candidate[1]["t2"]) <= 20 * 60)
+                    .filter(candidate => getInterval(getTime(), candidate[1]["t2"]) >= 10);
 
     if (candidateList.length > 3) {
         candidateList = candidateList.slice(0, 3);
@@ -555,19 +555,23 @@ async function mainLoop() {
         let status = statusList[1];
         if (status === "A") {
             let station = stationDataById[curTrain[stationIdx]["id"]];
-            updateBanner(station["name-ZH"], station["name-EN"]);
             let targetTime = curTrain[stationIdx]["t1"];
+            if(stationIdx === 0) {
+                updateBanner(`发车时间 ${targetTime.slice(0,2)}:${targetTime.slice(2,4)}`, `Departure Time ${targetTime.slice(0,2)}:${targetTime.slice(2,4)}`, true);
+            } else {
+                updateBanner(station["name-ZH"], station["name-EN"]);
+            }
             while (getTime() < targetTime) {
                 // A1
                 await displayA1(curTrain[stationIdx], 0, targetTime);
                 // map-svg
-                addFullScreenSvg("A1-map.svg", "A1-map-svg");
+                addFullScreenSvg("SVG/A1-map.svg", "A1-map-svg");
                 let svgName = getSvgName(curTrainPre["id"]);
                 // dot-svg
                 addDotSvg(station["mappos"]);
                 
                 await sleep(0.5);
-                addFullScreenSvg(`${svgName}.svg`, `${svgName}-svg`);
+                addFullScreenSvg(`SVG/${svgName}.svg`, `${svgName}-svg`);
                 for (let i = 0; i < 10; i++) {
                     showById(`${svgName}-svg`);
                     await sleep(0.5);
@@ -616,75 +620,74 @@ async function mainLoop() {
 async function showPrepare() {
     // prepare
 
-    fetch(lineJsonFile)
-        .then(response => response.json())
-        .then(data => {
-            lineData = data;
+    const lineResponse = await fetch(lineJsonFile);
+    lineData = await lineResponse.json();
+    const trainResponse = await fetch(trainJsonFile);
+    trainData = await trainResponse.json();
 
-            fetch(trainJsonFile)
-                .then(response => response.json())
-                .then(data => {
-                    trainData = data;
+    lineData["station"].forEach(station => {
+        stationDataById[station["id"]] = station;
+    });
 
-                    lineData["station"].forEach(station => {
-                        stationDataById[station["id"]] = station;
-                    });
+    lineData["line"].forEach(line => {
+        lineDataById[line["id"]] = line;
+    });
 
-                    lineData["line"].forEach(line => {
-                        lineDataById[line["id"]] = line;
-                    });
+    trainData.forEach(train => {
+        trainDataById[train["id"]] = train;
+    });
 
-                    trainData.forEach(train => {
-                        trainDataById[train["id"]] = train;
-                    });
+    // input and choose
 
-                    // input and choose
+    let curTrainList = [];
+    let relaxedTrainList = [];
+    trainData.forEach(train => {
+        if (train["id"].startsWith(curTrainId)) {
+            let curTime = getTime();
+            if (train["train"][train["train"].length - 1]["plan"][train["train"][train["train"].length - 1]["plan"].length - 1]["t2"] >= curTime) {
+                relaxedTrainList.push(train);
+                if (train["train"][0]["plan"][0]["t1"] <= curTime) {
+                    curTrainList.push(train);
+                }
+            }
+        }
+    });
 
-                    let curTrainList = [];
-                    trainData.forEach(train => {
-                        if (train["id"].startsWith(curTrainId)) {
-                            let curTime = getTime();
-                            if (train["train"][0]["plan"][0]["t1"] <= curTime && train["train"][train["train"].length - 1]["plan"][train["train"][train["train"].length - 1]["plan"].length - 1]["t2"] >= curTime) {
-                                curTrainList.push(train);
-                            }
-                        }
-                    });
-
-                    if (curTrainList.length === 0) {
-                        console.log(`Train with ID ${curTrainId} as prefix not found or not in service.`);
-                        return;
-                    }
-                    curTrainPre = curTrainList[Math.floor(Math.random() * curTrainList.length)];
-
-                    console.log(curTrainPre["id"]);
-
-                    // construct
-                    curTrain = [];
-                    curTrainPre["train"].forEach(train => {
-                        train["plan"].forEach(plan => {
-                            curTrain.push({
-                                "id": plan["station"],
-                                "t1": plan["t1"],
-                                "t2": plan["t2"],
-                                "line": train["line"],
-                                "dir": train["dir"]
-                            });
-                        });
-                    });
-
-                    curLines = [];
-                    curTrainPre["train"].forEach(train => {
-                        curLines.push(train["line"]);
-                    });
-                })
-                .catch(err => console.error('Error loading train data:', err));
+    if (curTrainList.length === 0) {
+        if(relaxedTrainList.length === 0) {
+            console.log(`Train with ID ${curTrainId} as prefix not found or not in service.`);
+            return;
+        }
+        relaxedTrainList.forEach(train => {
+            curTrainList.push(train);
         })
-        .catch(err => console.error('Error loading line data:', err));
+    }
+    curTrainPre = curTrainList[Math.floor(Math.random() * curTrainList.length)];
+
+    console.log(curTrainPre["id"]);
+
+    // construct
+    curTrain = [];
+    curTrainPre["train"].forEach(train => {
+        train["plan"].forEach(plan => {
+            curTrain.push({
+                "id": plan["station"],
+                "t1": plan["t1"],
+                "t2": plan["t2"],
+                "line": train["line"],
+                "dir": train["dir"]
+            });
+        });
+    });
+
+    curLines = [];
+    curTrainPre["train"].forEach(train => {
+        curLines.push(train["line"]);
+    });
 }
 
 async function coreMain() {
     await showPrepare();
-    await sleep(0.5);
     if(curTrain) {
         await mainLoop();
     }

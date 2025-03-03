@@ -174,10 +174,13 @@ function changesvgscale(svg_id, target_width, target_height) {
 }
 
 function updateTime() {
-    var now = new Date();
-    var hours = now.getHours().toString().padStart(2, '0');
-    var minutes = now.getMinutes().toString().padStart(2, '0');
-    var timeString = hours + ':' + minutes;
+    // var now = new Date();
+    // var hours = now.getHours().toString().padStart(2, '0');
+    // var minutes = now.getMinutes().toString().padStart(2, '0');
+    // var timeString = hours + ':' + minutes;
+
+    var curTime = getTime();
+    var timeString = curTime.slice(0,2) + ":" + curTime.slice(2, 4);
     
     document.getElementById('BANNER_text-ti').textContent = timeString;
 }

@@ -32,19 +32,19 @@
   </defs>
   <g id="A1-line">
     <g id="LineR4">
-      <path class="cls-2-A1-map" d="m340,335v-160c0-4.4,3.6-8,8-8h123c4.4,0,8,3.6,8,8v34.82"/>
+      <path class="cls-2-A1-map" d="m339.64,335v-160c0-4.4,3.6-8,8-8h123c4.4,0,8,3.6,8,8v34.82"/>
     </g>
     <g id="lineS6">
-      <path class="cls-1-A1-map" d="m415,249v78c0,4.4-3.6,8-8,8H52"/>
+      <path class="cls-1-A1-map" d="m414.64,249v78c0,4.4-3.6,8-8,8H51.64"/>
     </g>
     <g id="lineR9">
-      <path class="cls-3-A1-map" d="m188,248v-73c0-4.4,3.6-8,8-8h91.01"/>
+      <path class="cls-3-A1-map" d="m187.64,248v-73c0-4.4,3.6-8,8-8h91.01"/>
     </g>
     <g id="line6">
-      <path class="cls-4-A1-map" d="m122,248.5h454.55c4.4,0,10.55,2.55,13.66,5.66l24.66,24.66c3.11,3.11,9.26,5.66,13.66,5.66h35.02"/>
+      <path class="cls-4-A1-map" d="m121.64,248.5h454.55c4.4,0,10.55,2.55,13.66,5.66l24.66,24.66c3.11,3.11,9.26,5.66,13.66,5.66h35.02"/>
     </g>
     <g id="line4">
-      <rect class="cls-5-A1-map" x="532" y="167" width="225" height="73" rx="8" ry="8"/>
+      <rect class="cls-5-A1-map" x="531.64" y="167" width="225" height="73" rx="8" ry="8"/>
     </g>
   </g>
 </svg>

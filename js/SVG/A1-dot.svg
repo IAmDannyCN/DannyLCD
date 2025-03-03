@@ -2,7 +2,7 @@
 <svg id="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 54 54">
   <defs>
     <style>
-      .cls-1 {
+      .cls-1-A1-dot {
         fill: #fff;
         filter: url(#outer-glow-2);
         stroke: red;
@@ -19,5 +19,5 @@
       <feComposite in="SourceGraphic"/>
     </filter>
   </defs>
-  <circle class="cls-1" cx="27.14" cy="27.43" r="10"/>
+  <circle class="cls-1-A1-dot" cx="27.14" cy="27.43" r="10"/>
 </svg>
