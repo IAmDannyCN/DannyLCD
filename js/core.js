@@ -3,6 +3,7 @@ const trainJsonFile = "train.json";
 const curTrainId = getTrainId();
 
 
+
 var lineData, trainData, curTrainPre, curTrain;
 var stationDataById = {}, lineDataById = {}, trainDataById = {};
 var curLines;
